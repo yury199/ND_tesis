@@ -1,0 +1,30 @@
+/*TEXTO*/
+  
+  @font-face {
+    font-family: 'Jaldi-Regular';
+    src: url('../FONTS/Jaldi-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Jaldi-Bold';
+    src: url('../FONTS/Jaldi-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+
+/*TITULOS*/
+  @font-face {
+    font-family: 'Rowdies-Regular';
+    src: url('../FONTS/Rowdies-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Rowdies-Bold';
+    src: url('../FONTS/Rowdies-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }

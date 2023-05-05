@@ -1,0 +1,55 @@
+
+
+.custom-section {
+    margin: 100px auto 0; /* Centrar horizontalmente y agregar margen superior */
+    width: 50%; /* Tamaño de la sección */
+    background-color: white; /* Fondo blanco */
+    border-radius: 30px; /* Bordes redondeados */
+    padding: 20px; /* Espacio interno */
+    /* Otros estilos de diseño que desee aplicar */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+
+  .contenedor-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Para alinear los elementos horizontalmente */
+    align-items: center; /* Para alinear los elementos verticalmente */
+  }
+  
+  .item {
+    margin: 10px; /* Añade un margen entre los elementos */
+  }
+
+  
+  .item path {
+    fill: var(--color-de-fondo);
+  }
+
+  .item path:nth-child(2),
+  .item path:nth-child(6),
+  .item path:nth-child(8) {
+    opacity: 0.5;
+  }
+
+
+
+  .contenedor-title h2 {
+    color: var(--color-de-fondo); 
+  }
+
+
+  /* TARGETAS*/
+ 
+  .targetas{
+    background-color:var(--color-de-fondo); 
+    border-radius: 40px; 
+
+  }
+
+  .mi-div{
+    
+    background-size: cover;
+    height: 50;
+   
+  }

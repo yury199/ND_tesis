@@ -1,0 +1,48 @@
+
+
+article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+  }
+
+  
+  .contenedor {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contenedor h2, .contenedor p, .contenedor img {
+    display: block;
+    
+  }
+
+ 
+  .img {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+
+/* video*/
+
+.video-container {
+    position: relative; /* Agregar posición relativa al contenedor */
+  }
+  
+  .canvas {
+    width: 20%;
+    position: absolute; /* Establecer posición absoluta para el canvas */
+    top: 0;
+    left: 0;
+    z-index: 1; /* Asegurar que el canvas esté encima del video */
+  }
+  .video {
+    width: 20%;
+    height: auto;
+  }
+
