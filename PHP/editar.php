@@ -43,5 +43,7 @@ include("PageElements/nav_On.php");
     include("PageElements/footer.php");
     ?>
 
+  <!--  Andrew debe terminar el diseño -->
+
 </body>
 </html>
