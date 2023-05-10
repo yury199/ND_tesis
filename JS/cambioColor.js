@@ -28,7 +28,7 @@ function cambiarColor() {
     const color = colores[Math.floor(Math.random() * colores.length)];
     localStorage.setItem('color-de-fondo', color);
     document.documentElement.style.setProperty('--color-de-fondo', color);
-    console.log(color);
+    
     //fondos
     const imagenes = [
       'url(../Recursos/bg1.jpg)',

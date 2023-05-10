@@ -29,20 +29,17 @@ article {
 
 
 /* video*/
+.w{
+  position: relative;
+ 
 
-.video-container {
-    position: relative; /* Agregar posición relativa al contenedor */
-  }
+}
+
+
+canvas {
+  position: absolute;
+  top:0;
+  left: 100;
+  right: 0
   
-  .canvas {
-    width: 20%;
-    position: absolute; /* Establecer posición absoluta para el canvas */
-    top: 0;
-    left: 0;
-    z-index: 1; /* Asegurar que el canvas esté encima del video */
-  }
-  .video {
-    width: 20%;
-    height: auto;
-  }
-
+}

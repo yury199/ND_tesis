@@ -1,6 +1,7 @@
 <?php
    function updateGlobalVariable($value) {
     session_start();
+    
 
     if(isset($_SESSION['global_variable'])) {
         if($value == 'increment') {

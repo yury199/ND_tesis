@@ -123,6 +123,9 @@
 	padding: 0 10px;
 	text-transform: uppercase;
   }
+  .on{
+	width: 180px;
+  }
   
   .dropdown li{
 	display: flex;

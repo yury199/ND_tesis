@@ -21,8 +21,8 @@
       </li>
       <li class="enlace" ><a href="./crear.php">CREAR</a></li>
       <li class="enlace" ><a href="./mishistorietas.php">MIS HISTORIETAS</a></li>
-      <li class="enlace" ><a href="#">LEER</a></li>
-      <li class="dropdown"><a href="#" id="usuario-dropdown">
+      <li class="enlace" ><a href="leer4.php">LEER</a></li>
+      <li class="dropdown on"><a href="#" id="usuario-dropdown">
         <img src="../Recursos/user.png" alt="iconuser"> 
         <?php echo  $_SESSION["nombreusuario"];?>
       </a>

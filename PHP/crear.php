@@ -20,6 +20,7 @@ if (empty($_SESSION["id"])) {
   <link href="../CSS/body.css" rel="stylesheet" type="text/css">
   <link href="../CSS/footer.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../CSS/fonts.css">
+  
     <!-- Definir colores--> 
 	<script src="../JS/cambioColor.js"></script>
 	
@@ -41,9 +42,11 @@ include("PageElements/nav_On.php");
 <br>
 <br>
 <section>
+<div id="map"></div>
+<svg id="canvas"></svg>
 
 </section>
-
+<script src="https://d3js.org/d3.v7.min.js"></script>
     <?php
     include("PageElements/footer.php");
     ?>
