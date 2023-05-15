@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title> - jsFiddle demo</title>
+  
+  <script type='text/javascript' src='jquery.js'></script>
+ <!--  <link rel="stylesheet" href="demo.css"/> -->
+  <link rel="stylesheet" href="jquery.orgchart.css"/>
+
+</head>
+<body>
+	<div id="botones">
+		<button type="button" id="btnAgregar">Añadir</button>
+		<button type="button" id="btnEditar">Editar</button>
+		<button type="button" id="btnDividir">Dividir historia</button>
+		<button type="button" id="btnEliminar" onclick="eliminarDatos()">Eliminar</button>
+	  </div>
+	  
+	  <form id="formAgregar" style="display:none;">
+		<!-- campos del formulario para añadir -->
+		<label>Descripción:</label>
+		<input type="text">
+		<label>Imagen:</label>
+		<input type="file" accept="image/*" required>
+		<button type="submit">Agregar</button>
+	  </form>
+	  
+	  <form id="formEditar" style="display:none;">
+		<!-- campos del formulario para editar -->
+		<input type="hidden" name="id" value="">
+		<label>Descripción:</label>
+		<input type="text">
+		<label>Imagen:</label>
+		<input type="file" accept="image/*" required>
+		<button type="submit">Editar</button>
+	  </form>
+
+	  <form id="formDividir" style="display:none;">
+		<!-- campos del formulario -->
+		
+		<input type="hidden" name="id" value="">
+		<div>
+			<h2>Rumbo1</h2>
+			<label>Descripción:</label>
+			<input type="text">
+			<label>Imagen:</label>
+			<input type="file" accept="image/*" required><br>
+			<input type="checkbox" id="feliz1" name="emocion" value="feliz">
+			<label for="feliz1">Feliz</label><br>
+			<input type="checkbox" id="neutral1" name="emocion" value="neutral">
+			<label for="neutral1">Neutral</label><br>
+			<input type="checkbox" id="triste1" name="emocion" value="triste">
+			<label for="triste1">Triste</label><br>
+			<input type="checkbox" id="sorprendido1" name="emocion" value="sorprendido">
+			<label for="sorprendido1">Sorprendido</label><br>
+			<input type="checkbox" id="enojado1" name="emocion" value="enojado">
+			<label for="enojado1">Enojado</label><br>
+			<input type="checkbox" id="asqueado1" name="emocion" value="asqueado">
+			<label for="asqueado1">Asqueado</label><br>
+			<input type="checkbox" id="soprendido1" name="emocion" value="soprendido">
+			<label for="soprendido1">Soprendido</label><br>
+		  </div>
+		  <div>
+			<h2>Rumbo2</h2>
+			<label>Descripción:</label>
+			<input type="text">
+			<label>Imagen:</label>
+			<input type="file" accept="image/*" required><br>
+			<input type="checkbox" id="feliz2" name="emocion" value="feliz">
+			<label for="feliz2">Feliz</label><br>
+			<input type="checkbox" id="neutral2" name="emocion" value="neutral">
+			<label for="neutral2">Neutral</label><br>
+			<input type="checkbox" id="triste2" name="emocion" value="triste">
+			<label for="triste2">Triste</label><br>
+			<input type="checkbox" id="sorprendido2" name="emocion" value="sorprendido">
+			<label for="sorprendido2">Sorprendido</label><br>
+			<input type="checkbox" id="enojado2" name="emocion" value="enojado">
+			<label for="enojado2">Enojado</label><br>
+			<input type="checkbox" id="asqueado2" name="emocion" value="asqueado">
+			<label for="asqueado2">Asqueado</label><br>
+			<input type="checkbox" id="soprendido2" name="emocion" value="soprendido">
+			<label for="soprendido2">Soprendido</label><br>
+		  </div>
+
+		  <button type="button" onclick="seleccionarEmocion()">Seleccionar Emoción</button>
+		
+	  </form>
+	  
+
+
+
+<div  style="display: none">
+
+<ul id="mainContainer" class="clearfix"></ul>	
+  	
+</div>
+<div id="main">
+	
+</div>
+
+
+<button type="button" onclick="s1()">Cancelar</button>
+
+<button type="button" onclick="s1()">Crear historia</button>
+		
+  
+<script src="jquery.orgchart.js"></script>
+<script type='text/javascript'>
+
+
+$(document).ready(function() {
+
+    $("#btnAgregar").click(function() {
+    // Mostrar el formulario de añadir
+    $("#formAgregar").show();
+    $("#formEditar").hide();
+	$("#formDividir").hide();
+  });
+
+    // Evento de clic para el botón "Editar"
+	$("#btnEditar").click(function() {
+    // Mostrar el formulario de edición
+    $("#formAgregar").hide();
+	$("#formDividir").hide();
+    $("#formEditar").show();
+
+  });
+
+    // Evento de clic para el botón "Dividir historia"
+	$("#btnDividir").click(function() {
+    // Mostrar el formulario de edición
+    $("#formAgregar").hide();
+	$("#formEditar").hide();
+    $("#formDividir").show();
+
+  });
+
+}); 
+
+function eliminarDatos() {
+    // Enviar solicitud AJAX para eliminar datos
+    $.ajax({
+      type: "POST",
+      url: "delete.php", // Archivo PHP que procesa la eliminación de datos
+      success: function(data) {
+        // Mostrar mensaje de éxito o error
+        if (data == "exito") {
+          alert("Datos eliminados exitosamente");
+        } else {
+          alert("Error al eliminar datos");
+        }
+      }
+    });
+  }
+
+//_________Organigrama___________
+
+$(function(){
+var members;
+$.ajax({
+ url:'load.php',
+ async:false,
+ success:function(data){
+	 members=$.parseJSON(data)
+ }
+ 
+});
+
+//memberId,parentId,otherInfo
+	 for(var i = 0; i < members.length; i++){
+		 
+		 var member = members[i];
+		 
+		 
+		 if (i == 0) {
+			$("#mainContainer").append("<li id=" + member.memberId + ">" + member.otherInfo + "<img src='" + member.imgUrl + " 'style='max-width: 50px; max-height: 50px;' ></li>");
+
+		} else {
+			if ($('#pr_' + member.parentId).length <= 0) {
+				$('#'+member.parentId).append("<ul id='pr_"+member.parentId+"'><li id="+member.memberId+">"+member.otherInfo+"<img src='" + member.imgUrl + "'style='max-width: 50px; max-height: 50px;'></li></ul>")
+			} else {
+				$('#pr_'+member.parentId).append("<li id="+member.memberId+">"+member.otherInfo+"<img src='" + member.imgUrl + "'style='max-width: 50px; max-height: 50px;'></li>")
+			}
+		}
+
+	 }
+	
+ $("#mainContainer").orgChart({container: $("#main"),interactive: true, fade: true, speed: 'slow'});
+}); 
+
+</script>  
+</body>
+
+
+</html>
+
+
+
+
+
+
+
+

@@ -99,7 +99,7 @@ function cambiarImagen() {
   var xhttp = new XMLHttpRequest();
 
   // Configurar la solicitud HTTP POST al archivo PHP
-  xhttp.open("POST", "../PHP/no.php", true);
+  xhttp.open("POST", "../PHP/nomenclatura.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
   // Manejar la respuesta del archivo PHP
@@ -118,15 +118,6 @@ function cambiarImagen() {
     }
   };
 
-  // Enviar los datos de la variable id_imagen como un parámetro
+  // Enviar los datos de la variable
   xhttp.send("emocion=" + emociondetectada);
 }
-
-
-
-
-
-
-
-
-

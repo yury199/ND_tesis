@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Guardar Datos de Orgchart</title>
+</head>
+<body>
+	<h1>Guardar Datos de Orgchart</h1>
+
+	<div>
+		<label>nodo seleccionado:</label>
+		<input type="text">
+		<label>Descripción:</label>
+		<input type="text">
+		<label>Imagen:</label>
+		<input type="file" accept="image/*" required>
+		<br>
+		<i class="fa fa-plus-circle btn-inputs"></i>
+		<i class="fa fa-minus-circle btn-inputs"></i>
+		<span>
+		   
+		   <input type="radio" name="node-type" value="parent"><label for="rd-parent">Rama(root)</label><br>
+		   <input type="radio" name="node-type" value="children"><label for="rd-child">Hoja</label><br>
+		   <input type="radio" name="node-type" value="siblings"><label for="rd-sibling">Sibling mapp</label><br>
+		</span>
+		<button type="button">Añadir</button>
+		<button type="button">Borrar</button>
+		<button type="button">Reset</button>
+	 </div>
+	 
+<div  style="display: none">
+<ul id="mainContainer" class="clearfix"></ul>	 	
+</div>
+</body>
+</html>

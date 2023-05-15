@@ -15,13 +15,16 @@
 	</label>
 
   <ul class="nav__menu">
+  
 		<li class="menu__logo">
+    <a href="./home.php">
     <img src="../Recursos/iso.png" alt="icon logo" id="logo"/>
     <img class="nd" src="../Recursos/logo_title.png" alt="Narrativas digitales"/>
+    </a>
       </li>
       <li class="enlace" ><a href="./crear.php">CREAR</a></li>
       <li class="enlace" ><a href="./mishistorietas.php">MIS HISTORIETAS</a></li>
-      <li class="enlace" ><a href="leer4.php">LEER</a></li>
+      <li class="enlace" ><a href="./leer.php">LEER</a></li>
       <li class="dropdown on"><a href="#" id="usuario-dropdown">
         <img src="../Recursos/user.png" alt="iconuser"> 
         <?php echo  $_SESSION["nombreusuario"];?>
