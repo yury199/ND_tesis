@@ -1,5 +1,5 @@
 const video = document.getElementById('video')
-const eo = document.getElementsByClassName('s')
+const textHistoria = document.getElementsByClassName('des_his')
 
 var variableNarrativa=1;
 

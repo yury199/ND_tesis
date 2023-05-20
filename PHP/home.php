@@ -23,12 +23,7 @@ if (empty($_SESSION["id"])) {
 	<link href="../CSS/info.css" rel="stylesheet" type="text/css">
     <!-- Definir colores--> 
 	<script src="../JS/cambioColor.js"></script>
-  <script src="../JS/nav_menu.js"></script>
- 
-
-
-
-  
+  <script src="../JS/nav_menu.js"></script> 
 </head>
 <body onload="cambiarColor()">
     <!-- Aquí comienza el NAV -->  
@@ -57,9 +52,7 @@ if (empty($_SESSION["id"])) {
               <defs><clipPath id="a"><path fill="#fff" d="M0 0h86v102H0z"/></clipPath></defs>
             </svg>
           </div>
-          <p class="texto">Aenean ut lectus tellus. Vestibulum mollis eget dolor eu mollis.
-             Duis malesuada elit sit amet suscipit feugiat. Fusce in quam tincidunt,
-             venenatis lectus rhoncus, dignissim ipsum.</p>
+          <p class="texto">¿Quieres volver a ver cómo quedaron las historietas que has publicado?¿Te gustaría hacer cambios o correcciones a una de ellas? Mantente al día con tus creaciones en este apartado..</p>
           <a href="PHP/login.php" class="encabezado__boton">COMENZAR</a>
         </div>
         <div class="encabezado__imagen">
@@ -75,7 +68,7 @@ if (empty($_SESSION["id"])) {
             <div class="espacio"></div>
        
             <p class="titulo">CREAR</p>
-            <p class="texto">Aenean ut lectus tellus. Vestibulum mollis eget dolor eu mollis. fringilla porttitor eros lectus.</p>
+            <p class="texto">Desarrolla tu propia historieta interactiva usando imágenes y asignándoles emociones.</p>
           
           </div>
           <div class="contenedor_info">
@@ -84,7 +77,7 @@ if (empty($_SESSION["id"])) {
             </div>
             <div class="espacio"></div>
             <p class="titulo">LEER</p>
-            <p class="texto">Aenean ut lectus tellus. Vestibulum mollis eget dolor eu mollis. fringilla porttitor eros lectus.</p>
+            <p class="texto">Escoge y lee historietas creadas por otros usuarios, o lee las 2 historietas predeterminadas.</p>
           </div>
 
         <div class="contenedor_info">
@@ -93,7 +86,7 @@ if (empty($_SESSION["id"])) {
           </div>
           <div class="espacio"></div>
           <p class="titulo">MIS HISTORIETAS</p>
-          <p class="texto">Aenean ut lectus tellus. Vestibulum mollis eget dolor eu mollis. fringilla porttitor eros lectus.</p>
+          <p class="texto">Revisa y edita las historietas que has creado. </p>
         </div>
       </div>
       </section>

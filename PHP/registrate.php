@@ -111,6 +111,7 @@ function mostrarPassword() {
     x.type = "password";
   }
 }
+
 function mostrarPassword2() {
   var z = document.getElementById("password_btn");
   // Obtener el elemento por su id

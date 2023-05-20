@@ -2,7 +2,6 @@
 session_start();
 
 include("StateConnections/conexion.php");
-// Obtener el valor de la variable emocion enviada desde el archivo JS
 
 // Obtener el valor de la variable emocion enviada desde el archivo JS
 $emocion = $_POST['emocion'];
@@ -11,7 +10,7 @@ $emocion = $_POST['emocion'];
 $titulo = "El camaleón"; // especifica el título de la imagen */
 
       
-      // Obtener los valores actuales de N, D y C, o establecerlos en 1 si aún no se han establecido
+      // Obtener los valores actuales de N, D y C, o establecerlos,si aún no se han establecido
         $N = isset($_SESSION['N']) ? $_SESSION['N'] : 0;
         $D = isset($_SESSION['D']) ? $_SESSION['D'] : "N/A";
         $C = isset($_SESSION['C']) ? $_SESSION['C'] : 0;

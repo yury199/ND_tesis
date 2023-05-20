@@ -34,11 +34,12 @@
                     </div>
                     <?php
                     // Include config file
-                    require_once "StateConnections/conexion.php";
+                    include "StateConnections/conexion.php";
                     
                     // Attempt select query execution
                     $sql = "SELECT * FROM employees";
-                    if($result = mysqli_query($link, $sql)){
+
+                    if($result = mysqli_query($conexion, $sql)){
                         if(mysqli_num_rows($result) > 0){
                             echo '<table class="table table-bordered table-striped">';
                                 echo "<thead>";
@@ -76,7 +77,7 @@
                     }
  
                     // Close connection
-                    mysqli_close($link);
+                    mysqli_close($conexion);
                     ?>
                 </div>
             </div>        

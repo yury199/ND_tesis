@@ -1,0 +1,74 @@
+
+
+.mostrarHistorieta{
+  margin: 0 auto;
+  padding-top: 150px;
+  width: 900px;
+}
+
+.contenedorMostrar{
+  position: relative;
+  padding: 30px;
+  background-color: #F5F5F5;
+  border-radius: 50px;
+  width:1000px ;
+  box-shadow: 2px 2px 5px rgba(33, 33, 33, 0.2);
+  text-align: center;
+
+  
+}
+.contenedorEmociones{
+  position: absolute;
+  background-color:#525252 ;
+  width: 200px;
+  border-radius: 30px;
+  box-shadow: 2px 2px 5px rgba(33, 33, 33, 0.2);
+  text-align: center;
+  /*posicion*/
+  top:-110px;
+  left:-110px;
+
+}
+.contenedorEmociones img{
+  padding: 10px;
+  
+}
+
+#imagen{
+  height: 500px;
+  width: 870px;
+  border-radius: 40px;
+}
+
+h2{
+  font-family: 'Rowdies-Bold', sans-serif;
+  font-weight: normal;
+  font-size: 50px;
+  color: var(--color-de-fondo);
+}
+
+p{
+  font-family: 'Jaldi-Regular', sans-serif;
+  font-weight: normal;
+  font-size: 20px;
+}
+
+
+/* video*/
+.con_his_vi{
+  position: relative;
+  
+}
+
+#video {
+  border-radius: 29px 29px 0 0;
+  width: 100%;
+  height: auto; 
+} 
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+}

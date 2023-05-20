@@ -1,7 +1,7 @@
 .index_main{
   width: 70%;
   margin: 0 auto;
-  padding-top: 70px;
+  padding-top: 100px;
 }
 .encabezado {
   display: flex;
@@ -83,8 +83,9 @@
 /*información*/
 .info{
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  align-items: stretch;
+ 
   padding-top: 100px;
   
  
@@ -100,10 +101,16 @@
   padding: 30px;
   border-radius: 50px;
   box-shadow: 2px 2px 5px rgba(33, 33, 33, 0.2);
-  width: 100%;
   z-index: -1;
 }
 .contenedor_info{
+  flex: 1;
+  height:100%;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   
   position: relative;  
   background-color:var(--color-de-fondo);
@@ -111,6 +118,7 @@
   padding: 5px 30px;
   
 }
+
 .contenedor_info .titulo{
   font-size: 30px;
   color: white;

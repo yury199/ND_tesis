@@ -9,7 +9,7 @@ function getConnection() {
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	return $dbh;
 }
-$sql = "SELECT id AS memberId, parent AS parentId, user AS otherInfo, imgUrl FROM users";
+$sql = "SELECT id_historieta AS memberId, parent AS parentId, Descripcion AS otherInfo, imgUrl FROM users";
 
 	try {
 		$db = getConnection();

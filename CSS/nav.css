@@ -107,7 +107,22 @@
 	display: none;
 }
 
-
+.comprimido_usuario {
+	display: none;
+	position: absolute;
+	z-index: -1;
+	background-color:var(--white);
+	color: var(--color-de-fondo);
+	border-radius: 0  0 15px 15px;
+	top: 30px;
+	padding: 10px 10px 0px 10px;
+	box-shadow: 2px 2px 5px rgba(33, 33, 33, 0.2);
+  }
+  
+  .dropdown:hover .comprimido_usuario {
+	display: block;  
+  }
+  
 
 
 
@@ -145,22 +160,6 @@
   }
 
 
-.comprimido_usuario {
-  display: none;
-  position: absolute;
-  z-index: -1;
-  background-color:var(--white);
-  color: var(--color-de-fondo);
-  border-radius: 0  0 15px 15px;
-  top: 30px;
-  padding: 10px 10px 0px 10px;
-  box-shadow: 2px 2px 5px rgba(33, 33, 33, 0.2);
-}
-
-.dropdown:hover .comprimido_usuario {
-  display: block;
-  
-}
 
 
 @media (max-width: 1000px) {

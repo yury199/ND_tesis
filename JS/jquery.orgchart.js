@@ -13,9 +13,6 @@
  *     http://creativecommons.org/licenses/by-sa/3.0
  */
 
-
-
-
 (function($) {
     
 
@@ -135,7 +132,7 @@
             
             $.ajax({
                 type: "POST",
-                url: "set_session.php",
+                url: "../PHP/creationStates/set_session.php",
                 data: { nodeId: nodeId },
                 success: function(response) {
                     console.log(response);
