@@ -22,16 +22,16 @@
     <img class="nd" src="../Recursos/logo_title.png" alt="Narrativas digitales"/>
     </a>
       </li>
-      <li class="enlace" ><a href="./crear.php">CREAR</a></li>
+      <li class="enlace" ><a href="./creacion.php">CREAR</a></li>
       <li class="enlace" ><a href="./mishistorietas.php">MIS HISTORIETAS</a></li>
-      <li class="enlace" ><a href="./leer.php">LEER</a></li>
+      <li class="enlace" ><a href="./mostrarHistorieta.php">LEER</a></li>
       <li class="dropdown on"><a href="#" id="usuario-dropdown">
         <img src="../Recursos/user.png" alt="iconuser"> 
         <?php echo  $_SESSION["nombreusuario"];?>
       </a>
         <div class="comprimido_usuario">
           <ul>
-            <li><a class="user_c" href="./editar.php">EDITAR</a></li>
+            <li><a class="user_c" href="./editarPerfil.php">EDITAR PERFIL</a></li>
             <li><a class="user_c" href="./StateConnections/controlador_cerrar_session.php">CERRAR SESION</a></li>
           </ul>
         </div>

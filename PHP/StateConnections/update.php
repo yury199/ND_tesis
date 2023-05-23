@@ -1,26 +1,24 @@
 <?php
 session_start();
-require_once "../StateConnections/conexion.php";
+require_once "./conexion.php";
 
-// Obtener el ID del usuario actualmente conectado (aquí se asume que ya tienes esta información)
-$userId = 11; // Reemplaza con la lógica para obtener el ID del usuario actual
+$nuevaContrasena = $_POST['nuevaContrasena'];
+$confirmarContrasena = $_POST['confirmarContrasena'];
 
-// Obtener los datos enviados por el formulario
-$nombreusuario = $_POST['nombreusuario'];
-$nombre = $_POST['nombre'];
-$contrasena = $_POST['contrasena'];
-// Codificar la contraseña utilizando SHA1
-$contrasenaCodificada = sha1($contrasena);
-$contrasena =sha1($_POST['contrasena']);
-$correo = $_POST['correo'];
 
-// Actualizar los datos del usuario en la base de datos
-$sql = "UPDATE usuarios SET nombreusuario = '$nombreusuario', nombre = '$nombre', contrasena = '$contrasena', correo = '$correo' WHERE id = $userId";
-if ($conexion->query($sql) === TRUE) {
-    echo "Perfil actualizado correctamente.";
+if ($nuevaContrasena === $confirmarContrasena) {
+    $contrasenaEncriptada = sha1($nuevaContrasena);
+    $userId = 11;
+    $sql = "UPDATE usuarios SET contrasena = '$contrasenaEncriptada' WHERE id = $userId";
+    $result = $conexion->query($sql);
+    echo '<script>alert("Contraseña Actualizada");</script>';
+    header("Location:../home.php");
+                        exit();
 } else {
-    echo "Error al actualizar el perfil: " . $conexion->error;
+    // Las contraseñas no coinciden, muestra un mensaje de error o realiza alguna acción adicional
+    echo "Las contraseñas no coinciden. Por favor, verifica nuevamente.";
 }
+
 
 $conexion->close();
 ?>

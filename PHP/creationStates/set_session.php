@@ -7,4 +7,6 @@ if (isset($_POST["nodeId"])) {
 }else{
     echo "no hay nodos";
 }
+
+
 ?>

@@ -1,7 +1,145 @@
 
+.crear_pg{
+  margin: 0 auto;
+  padding-top: 100px;
+  width: 100%;
 
-.tamaño {
-    max-width: 100px;
-    height: auto;
-  }
-  
+}
+
+.Org_edit{
+  width: 700px;
+  height: 600px;
+  overflow: auto;
+  cursor: grab;
+}
+.dragging {
+  cursor: grabbing;
+}
+
+.contenedor_crear{
+  border-radius: 50px;
+  box-shadow: 2px 2px 5px rgba(33, 33, 33, 0.2);
+  text-align: center; 
+  display: flex; 
+  width:1280px ;
+  background-color: beige;
+}
+
+.barra_v{
+  width: 50%;
+  border-radius: 50px 0 0 50px;
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color:var(--color-de-fondo);
+
+}
+
+h1, span {
+  font-family: 'Rowdies-Regular', sans-serif;
+  font-weight: normal;
+  color: white;
+}
+span{
+  font-size: 20px;
+}
+
+
+h2,p{
+  font-family: 'Jaldi-Regular', sans-serif;
+  color: white;
+}
+
+h2{
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.botones {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.botonC{
+  margin: 17px 0;
+  background-color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Jaldi-Bold', sans-serif;
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  border-radius: 14px;
+  width: 219px;
+  height: 58px;
+  gap: 10px;
+}
+
+.titullo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.titullo h1{
+  text-align: start;
+  font-size: 30px;
+}
+
+.formulario{
+  background-color: #D3D3D3;
+}
+/* ---------diseño formularios--------- */
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  width:260px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.625rem 1.25rem;
+}
+
+.inputfile + label svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  fill: currentColor;
+  margin-top: -0.25em;
+  margin-right: 0.25em;
+}
+
+.iborrainputfile {
+font-size:16px; 
+font-family: 'Jaldi-Bold', sans-serif;
+color:var(--color-de-fondo);
+
+}
+
+/* style 1 */
+
+.inputfile-1 + label {
+
+  background-color: #e9e9e9;
+  border-radius: 14px;
+}
+
+.inputfile-1:focus + label,
+.inputfile-1.has-focus + label,
+.inputfile-1 + label:hover {
+  background-color: #ffffff;
+}

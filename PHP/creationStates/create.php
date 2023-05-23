@@ -5,13 +5,14 @@ require_once "../StateConnections/conexion.php";
 
 // Variables
 $padreNodo = $_SESSION['nodeId'] ?? 0;
+$genero = $_SESSION["categoria"];
 
-$_SESSION['aviso_nodo'] = 'Crea y diviértete';
 
-// Ubicación de carpeta
+
+// Ubicación de la carpeta
 $carpeta = '../../Historietas';
-$subcarpeta = 'Luisa123';
-$subsubcarpeta = 'El camaleón';
+$subcarpeta = $_SESSION["nombreusuario"];
+$subsubcarpeta = $_SESSION["title"];
 
 // Función para generar un nombre de archivo único
 function generarNombreUnico($nombreArchivo)
@@ -19,9 +20,7 @@ function generarNombreUnico($nombreArchivo)
     $nombreUnico = uniqid() . '_' . $nombreArchivo;
     return $nombreUnico;
 }
-
-// Verificar si se ha enviado una imagen
-if (isset($_FILES['imagen'])) {
+if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
     $archivo = $_FILES['imagen']['tmp_name'];
     $nombre = $_FILES['imagen']['name'];
 
@@ -47,29 +46,25 @@ if (isset($_FILES['imagen'])) {
     // Guardar el nombre de la imagen y el texto en la base de datos
     $nombre_imagen = '../Historietas/' . $subcarpeta . '/' . $subsubcarpeta . '/' . $nombreUnico;
 
-    // Verificar si existe una id_historia para el usuario "Luisa123"
-    $query = "SELECT id_historieta FROM users WHERE usuario = 'Luisa123' AND titlestory = 'El camaleón'";
+    // Verificar si existe 
+    $query = "SELECT id_historieta FROM users WHERE usuario = '$subcarpeta' AND titlestory = '$subsubcarpeta'";
     $resultado = $conexion->query($query);
 
     if ($resultado->num_rows > 0) {
         if ($padreNodo == 0) {
-            $aviso_nodo = "Seleccione un nodo por favor";
-            $_SESSION['aviso_nodo'] = $aviso_nodo;
-            header("Location:../crear.php");
-            exit();
+            $response['message'] = "Seleccione un nodo por favor";
+
         } else {
             // Verificar si existe una id_historia con el padreNodo especificado
-            $query = "SELECT id_historieta FROM users WHERE usuario = 'Luisa123' AND titlestory = 'El camaleón' AND parent = ?";
-            $stmt = mysqli_prepare($conexion, $query);
-            mysqli_stmt_bind_param($stmt, "i", $padreNodo);
-            mysqli_stmt_execute($stmt);
-            $resultado = mysqli_stmt_get_result($stmt);
+            $query = "SELECT id_historieta FROM users WHERE usuario = '$subcarpeta' AND titlestory = '$subsubcarpeta' AND parent = ?";
+            $stmt = $conexion->prepare($query);
+            $stmt->bind_param("i", $padreNodo);
+            $stmt->execute();
+            $resultado = $stmt->get_result();
 
             if ($resultado->num_rows > 0) {
-                $aviso_nodo = "Por favor seleccione los nodos de los finales para agregar";
-                $_SESSION['aviso_nodo'] = $aviso_nodo;
-                header("Location:../crear.php");
-                exit();
+                $response['message'] = "Por favor seleccione los nodos de los finales para agregar";
+
             } else {
                 // Obtener el valor más alto
                 $maxIdQuery = "SELECT MAX(id_historieta) FROM users";
@@ -81,38 +76,41 @@ if (isset($_FILES['imagen'])) {
                 // Insertar nueva fila en la base de datos
                 $insertQuery = "INSERT INTO users (id_historieta, parent, imgUrl, usuario, titlestory, genero, descripcion, emocion, climax)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-                $stmt = mysqli_prepare($conexion, $insertQuery);
+                $stmt = $conexion->prepare($insertQuery);
 
                 if ($stmt) {
                     // Asignar los valores a variables antes de pasarlas como argumentos
                     $valor1 = $nodo;
                     $valor2 = $padreNodo;
                     $valor3 = $nombre_imagen;
-                    $valor4 = 'Luisa123';
-                    $valor5 = 'El camaleón';
-                    $valor6 = 'aventuras';
+                    $valor4 = $subcarpeta;
+                    $valor5 = $subsubcarpeta;
+                    $valor6 = $genero;
                     $valor7 = $texto;
                     $valor8 = 'N/A';
                     $valor9 = '0';
 
-                    mysqli_stmt_bind_param($stmt, "iisssssss", $valor1, $valor2, $valor3, $valor4, $valor5, $valor6, $valor7, $valor8, $valor9);
-                    mysqli_stmt_execute($stmt);
+                    $stmt->bind_param("iisssssss", $valor1, $valor2, $valor3, $valor4, $valor5, $valor6, $valor7, $valor8, $valor9);
+                    $stmt->execute();
 
-                    if (mysqli_stmt_affected_rows($stmt) > 0) {
+                    if ($stmt->affected_rows > 0) {
                         // La fila se insertó correctamente
-                        $aviso_nodo = "Se agregó nodo";
-                        $_SESSION['aviso_nodo'] = $aviso_nodo;
-                        header("Location:../crear.php");
-                        exit();
+                    
+                        $response['message'] = "Se agregó nodo";
+
                     } else {
                         // No se pudo insertar la fila
-                        echo "No se pudo insertar la fila en la base de datos";
+                    
+                        $response['message'] = "No se pudo insertar la fila en la base de datos";
+
                     }
 
-                    mysqli_stmt_close($stmt);
+                    $stmt->close();
                 } else {
                     // No se pudo preparar la declaración
-                    echo "Error al preparar la declaración SQL";
+                
+                    $response['message'] = "Error al preparar la declaración SQL";
+
                 }
             }
         }
@@ -120,43 +118,52 @@ if (isset($_FILES['imagen'])) {
         // No existe una id_historia, crear una nueva
         $insertQuery = "INSERT INTO users (id_historieta, imgUrl, usuario, titlestory, genero, descripcion, emocion, climax)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        $stmt = mysqli_prepare($conexion, $insertQuery);
+        $stmt = $conexion->prepare($insertQuery);
 
         if ($stmt) {
             // Asignar los valores a variables antes de pasarlas como argumentos
             $valor1 = '1';
             $valor2 = $nombre_imagen;
-            $valor3 = 'Luisa123';
-            $valor4 = 'El camaleón';
-            $valor5 = 'aventuras';
+            $valor3 = $subcarpeta;
+            $valor4 = $subsubcarpeta;
+            $valor5 = $genero;
             $valor6 = $texto;
             $valor7 = 'N/A';
             $valor8 = '0';
 
-            mysqli_stmt_bind_param($stmt, "isssssss", $valor1, $valor2, $valor3, $valor4, $valor5, $valor6, $valor7, $valor8);
-            mysqli_stmt_execute($stmt);
+            $stmt->bind_param("isssssss", $valor1, $valor2, $valor3, $valor4, $valor5, $valor6, $valor7, $valor8);
+            $stmt->execute();
 
-            if (mysqli_stmt_affected_rows($stmt) > 0) {
+            if ($stmt->affected_rows > 0) {
                 // La fila se insertó correctamente
-                $aviso_nodo = "Se agregó el primer nodo de la historia";
-                $_SESSION['aviso_nodo'] = $aviso_nodo;
-                header("Location:../crear.php");
-                exit();
+            
+                $response['message'] = "Se agregó el primer nodo de la historia";
+
             } else {
                 // No se pudo insertar la fila
-                echo "No se pudo insertar la fila en la base de datos";
+            
+                $response['message'] = "No se pudo insertar la fila en la base de datos";
+
             }
 
-            mysqli_stmt_close($stmt);
+            $stmt->close();
         } else {
             // No se pudo preparar la declaración
-            echo "Error al preparar la declaración SQL";
+        
+            $response['message'] = "Error al preparar la declaración SQL";
+
         }
     }
 } else {
-    // No se envió una imagen
-    echo "No se ha enviado una imagen";
-}
+    // Hubo un error al subir el archivo o no se ha enviado una imagen
 
-mysqli_close($conexion);
+    $response['message'] = "Ocurrió un error al subir el archivo o no se ha enviado una imagen";
+}
+$_SESSION["nodeId"]=0;
+
+$conexion->close();
+
+// Enviar la respuesta como JSON
+header('Content-Type: application/json');
+echo json_encode($response);
 ?>

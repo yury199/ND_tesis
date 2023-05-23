@@ -2,42 +2,65 @@
 
 .mostrarHistorieta{
   margin: 0 auto;
-  padding-top: 150px;
-  width: 900px;
+  padding-top: 100px;
+  width: 1280px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 .contenedorMostrar{
-  position: relative;
   padding: 30px;
   background-color: #F5F5F5;
   border-radius: 50px;
-  width:1000px ;
+  width:830px ;
   box-shadow: 2px 2px 5px rgba(33, 33, 33, 0.2);
-  text-align: center;
-
-  
+  text-align: center;  
 }
 .contenedorEmociones{
-  position: absolute;
   background-color:#525252 ;
   width: 200px;
+  height: 200px;
   border-radius: 30px;
   box-shadow: 2px 2px 5px rgba(33, 33, 33, 0.2);
   text-align: center;
-  /*posicion*/
-  top:-110px;
-  left:-110px;
-
 }
 .contenedorEmociones img{
   padding: 10px;
-  
 }
 
-#imagen{
-  height: 500px;
-  width: 870px;
+#imagenH{
+
   border-radius: 40px;
+  width: 100%;
+  height: 430px;
+}
+.barraSuperior{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+}
+
+.enlaces_h{
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+}
+.enlaces_h a{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Jaldi-Regular', sans-serif;
+  text-decoration: none;
+  color: var(--color-de-fondo);
+
+}
+
+
+.botn_item path {
+  fill: var(--color-de-fondo);
 }
 
 h2{
@@ -64,11 +87,12 @@ p{
   border-radius: 29px 29px 0 0;
   width: 100%;
   height: auto; 
+  z-index: -100;
 } 
 
 canvas {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
 
 }

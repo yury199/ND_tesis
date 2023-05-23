@@ -1,8 +1,6 @@
 <?php
 
 include "StateConnections/controlador_login.php";
-
-
 	include ("StateConnections/conexion.php");
 	//registar usuario----
 

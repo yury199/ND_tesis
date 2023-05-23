@@ -42,3 +42,51 @@ function cambiarColor() {
     
   }
 
+//Formularios
+
+function mostrarPassword() {
+  var x = document.getElementById("password"); 
+  // Obtener el elemento por su id
+  var elemento = document.getElementById("mi-elemento");
+  if (x.type === "password" ) {
+
+    elemento.style.opacity = 1;
+    x.type = "text";
+  } else {
+    elemento.style.opacity = 0.5;
+    x.type = "password";
+  }
+}
+
+function mostrarPassword2() {
+  var z = document.getElementById("password_btn");
+  // Obtener el elemento por su id
+  var elemento2 = document.getElementById("mi-elemento2");
+  if (z.type === "password" ) {
+
+	elemento2.style.opacity = 1;
+	z.type = "text";
+	} else {
+	elemento2.style.opacity = 0.5;
+	z.type = "password";
+	}
+}
+
+//---------
+
+
+  
+  function mostrarCambiarContrasena() {
+    var formulario = document.getElementById("cambiarContrasena");
+    formulario.style.display = "block";
+    var formulario1 = document.getElementById("Contrasena");
+    formulario1.style.display = "none";
+
+   
+     // Activar el botón
+    var btn = document.getElementById("btnG");
+    btn.disabled = false;
+    btn.style.opacity = "1";
+  }
+ 
+

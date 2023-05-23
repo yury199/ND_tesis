@@ -16,6 +16,8 @@
 
   }
 
+
+
   .titulo {
     text-align: center;
     color: var(--color-de-fondo);
@@ -48,9 +50,19 @@
     
 
   }
+  .cambCnt{
+    text-align:right;
+    font-family: 'Jaldi-Bold', sans-serif;
+    font-size: 22px;
+   
+    color: var(--color-de-fondo);
+
+  }
 
   .btn{
     cursor: pointer;
+    filter: opacity(0.5);
+
   }
 
   .entrada input{
@@ -79,6 +91,7 @@
     color: var(--color-de-fondo);
     font-weight: bold;
   }
+  
 
 
   @media (max-width: 1200px) {

@@ -20,6 +20,7 @@
   font-family: 'Jaldi-Regular', sans-serif;
   color: var(--white);
   padding: 0 70px;
+  z-index: 100px;
 
  
 }
