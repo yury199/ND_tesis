@@ -52,7 +52,7 @@ if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
 
     if ($resultado->num_rows > 0) {
         if ($padreNodo == 0) {
-            $response['message'] = "Seleccione un nodo por favor";
+            $response= "Seleccione un nodo por favor";
 
         } else {
             // Verificar si existe una id_historia con el padreNodo especificado
@@ -63,11 +63,11 @@ if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
             $resultado = $stmt->get_result();
 
             if ($resultado->num_rows > 0) {
-                $response['message'] = "Por favor seleccione los nodos de los finales para agregar";
+                $response= "Por favor seleccione los nodos de los finales para agregar";
 
             } else {
                 // Obtener el valor más alto
-                $maxIdQuery = "SELECT MAX(id_historieta) FROM users";
+                $maxIdQuery = "SELECT MAX(id_historieta) FROM users WHERE usuario = '$subcarpeta' AND titlestory = '$subsubcarpeta'";
                 $maxIdResult = $conexion->query($maxIdQuery);
                 $row = mysqli_fetch_array($maxIdResult);
                 $maxId = $row[0];
@@ -96,12 +96,12 @@ if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
                     if ($stmt->affected_rows > 0) {
                         // La fila se insertó correctamente
                     
-                        $response['message'] = "Se agregó nodo";
+                        $response= "Se agregó nodo";
 
                     } else {
                         // No se pudo insertar la fila
                     
-                        $response['message'] = "No se pudo insertar la fila en la base de datos";
+                        $response= "No se pudo insertar la fila en la base de datos";
 
                     }
 
@@ -109,7 +109,7 @@ if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
                 } else {
                     // No se pudo preparar la declaración
                 
-                    $response['message'] = "Error al preparar la declaración SQL";
+                    $response= "Error al preparar la declaración SQL";
 
                 }
             }
@@ -137,12 +137,12 @@ if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
             if ($stmt->affected_rows > 0) {
                 // La fila se insertó correctamente
             
-                $response['message'] = "Se agregó el primer nodo de la historia";
+                $response= "Se agregó la primera viñeta de la historia";
 
             } else {
                 // No se pudo insertar la fila
             
-                $response['message'] = "No se pudo insertar la fila en la base de datos";
+                $response= "No se pudo guardar, intente de nuevo";
 
             }
 
@@ -150,14 +150,14 @@ if (isset($_FILES['imagen']) && $_FILES['imagen']['error'] === UPLOAD_ERR_OK) {
         } else {
             // No se pudo preparar la declaración
         
-            $response['message'] = "Error al preparar la declaración SQL";
+            $response= "Error";
 
         }
     }
 } else {
     // Hubo un error al subir el archivo o no se ha enviado una imagen
 
-    $response['message'] = "Ocurrió un error al subir el archivo o no se ha enviado una imagen";
+    $response= "Ocurrió un error al subir el archivo o no se ha enviado una imagen";
 }
 $_SESSION["nodeId"]=0;
 
@@ -165,5 +165,5 @@ $conexion->close();
 
 // Enviar la respuesta como JSON
 header('Content-Type: application/json');
-echo json_encode($response);
+echo json_encode($response , JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 ?>

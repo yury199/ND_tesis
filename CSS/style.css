@@ -1,0 +1,151 @@
+/* generales */
+
+.index_main{
+    width: 70%;
+    margin: 0 auto;
+    border: 0 10px;
+  }
+
+body {
+  height: 100vh;
+  box-sizing: border-box;
+  background-image: var(--imagen-fondo);
+}
+
+/*TEXTO*/
+  
+@font-face {
+    font-family: 'Jaldi-Regular';
+    src: url('../FONTS/Jaldi-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Jaldi-Bold';
+    src: url('../FONTS/Jaldi-Bold.ttf') format('truetype');
+   
+    font-style: normal;
+  }
+
+/*TITULOS*/
+  @font-face {
+    font-family: 'Rowdies-Regular';
+    src: url('../FONTS/Rowdies-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Rowdies-Bold';
+    src: url('../FONTS/Rowdies-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+  }
+
+/* /--------------------------------/ */
+
+/* titulos y textos: */
+h1 {
+  font-family: "Rowdies-Regular";
+  font-size: 52px;
+  color: var(--color-de-fondo);
+}
+
+h3,.volver {
+  font-family: "Rowdies-Regular";
+  color: var(--color-de-fondo);
+  font-size: 24px;
+}
+.spantitulo {
+  font-family: "Rowdies-Regular";
+  font-size: 32px;
+  color: var(--color-de-fondo);
+}
+
+p,#charCount{
+  font-family: "Jaldi-Regular", sans-serif;
+  font-size: 20px;
+  color: #333333;
+}
+
+
+
+/*  botones */
+/* botogeneral */
+.botonGeneral {
+  width: 80%;
+  padding: 15px 30px;
+  background-color: var(--color-de-fondo);
+  color: white;
+  text-align: center;
+  font-family: "Jaldi-Regular", sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  text-decoration: none;
+  border-radius: 18px;
+  transition: all 0.2s ease-in-out;
+}
+
+.botonGeneral:hover {
+  filter: saturate(2.5);
+
+}
+/* boton de formulario: */
+.form_boton{
+  padding-top: 20px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form_boton input{
+  background-color:var(--color-de-fondo);
+  border-radius: 18px; 
+  width: 350px;
+  height: 60px;
+  border: none;
+  /*texto*/
+  font-family: 'Jaldi-Bold', sans-serif;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.form_boton input:hover{
+  filter: saturate(2.5);
+}
+
+/* formas comunes */
+.contenedor {
+  margin: 0 auto;
+  padding: 30px 70px;
+  background-color: #ebebeb;
+  border-radius: 50px;
+  box-shadow: 2px 2px 5px rgba(33, 33, 33, 0.2);
+}
+
+/* AVISOS */
+.alert-danger{
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #333333;
+  border-radius: 10px;
+  padding: 0 20px;
+  gap: 10px;
+  width:fit-content;
+  height: 47px;
+
+}
+.error {
+  background-color:#818181
+}
+.alert-danger p{
+    font-family: "Jaldi-Regular", sans-serif;
+    font-size: 20px;
+    color: #ffffff;
+}

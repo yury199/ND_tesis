@@ -17,7 +17,7 @@ session_start();
   <meta name="description" content="Editar">
   <!-- Enlaces-->
   <link href="../CSS/nav.css" rel="stylesheet" type="text/css">
-  <link href="../CSS/body.css" rel="stylesheet" type="text/css">
+  <link href="../CSS/style.css" rel="stylesheet" type="text/css">
   <link href="../CSS/footer.css" rel="stylesheet" type="text/css">
   <link href="../CSS/formulario.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../CSS/fonts.css">

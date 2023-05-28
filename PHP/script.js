@@ -1,3 +1,4 @@
+
 function agregarDato() {
   var spanElement = document.getElementById("seleccionadoA");
   var imagen = document.getElementById("file-1").value;
@@ -8,6 +9,8 @@ function agregarDato() {
     var formulario = document.getElementById("formAgregar");
     // Obtener los datos del formulario
     var datosFormulario = new FormData(formulario);
+    var div = document.getElementById('respuestas');
+    div.style.display = 'block';
 
     // Envío de los datos mediante Ajax
     $.ajax({
@@ -69,8 +72,12 @@ function AgregarDDatos() {
         "Porfavor seleccione almenos una emocion en cada viñeta";
       return false;
     } else {
+       
       var formularioD = document.getElementById("formDividir");
       var datosFormularioD = new FormData(formularioD);
+
+      var div = document.getElementById('respuestas');
+      div.style.display = 'block';
       $.ajax({
         url: "./creationStates/createDecisions.php",
         type: "POST",
@@ -111,7 +118,7 @@ $(document).ready(function () {
 
     // Realiza una solicitud AJAX para obtener el formulario de edición
     $.ajax({
-      url: "./creationStates/editForm2.php",
+      url: "./creationStates/editForm.php",
       method: "GET",
       success: function (response) {
         // Muestra el formulario de edición dentro del elemento 'formularioEditar'
@@ -128,14 +135,14 @@ $(document).ready(function () {
 
 
 function editarDato() {
-
-    
-
       var formulario = document.getElementById("formEditar");
       var datosFormulario = new FormData(formulario);
 
+      var div = document.getElementById('respuestas');
+      div.style.display = 'block';
+
       $.ajax({
-        url: "./creationStates/update2.php",
+        url: "./creationStates/update.php",
         type: "POST",
         data: datosFormulario,
         processData: false,
@@ -163,6 +170,8 @@ function editarDato() {
 
 
 function eliminarDato() {
+  var div = document.getElementById('respuestas');
+  div.style.display = 'block';
   // Realizar la solicitud AJAX
   $.ajax({
     url: "./creationStates/delete.php",
@@ -178,3 +187,17 @@ function eliminarDato() {
     },
   });
 }
+
+function eliminarDatos() {
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "./creationStates/deleteStory.php", true);
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      window.location.href = "home.php"; 
+    } else {
+     alert("Error al ejecutar.");
+    }
+  };
+  xhr.send();
+}
+

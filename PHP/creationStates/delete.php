@@ -27,12 +27,12 @@ if (mysqli_num_rows($resultado) > 0) {
     // Verificar si la imagen existe en la ruta especificada y eliminarla
     if (file_exists($rutaImagen)) {
         if (unlink($rutaImagen)) {
-            $response['message'] = 'La imagen ha sido eliminada correctamente.';
+            $response = 'La imagen ha sido eliminada correctamente.';
         } else {
-            $response['message'] = 'No se pudo eliminar la imagen.';
+            $response = 'No se pudo eliminar la imagen.';
         }
     } else {
-        $response['message'] = 'La imagen no existe en la ruta especificada.';
+        $response = 'La imagen no existe en la ruta especificada.';
     }
 
     // Eliminar las imágenes con parent igual a nodeId y contarlas
@@ -80,22 +80,22 @@ if (mysqli_num_rows($resultado) > 0) {
 
     if ($num_records_deleted > 0) {
         // Se eliminaron las imágenes y los registros correctamente
-        $response['message'] = "Se elimino la viñeta";
+        $response = "Se elimino la viñeta";
        
         
     } else {
         // No se pudieron eliminar las imágenes y los registros
-        $response['message'] = "No se pudo eliminar ";
+        $response = "No se pudo eliminar ";
        
     }
 } else {
     // El registro no existe en la base de datos
-    $response['message'] = "Da clic una viñeta primero para poder eliminar";
+    $response = "Da clic una viñeta primero para poder eliminar";
    
     
 }
 }else{
-    $response['message'] = "Debes agregar un viñeta simple primero";
+    $response = "Debes agregar un viñeta simple primero";
    
 }
 $_SESSION["nodeId"]=0;
@@ -105,5 +105,5 @@ mysqli_close($conexion);
 
 // Enviar la respuesta como JSON
 header('Content-Type: application/json');
-echo json_encode($response);
+echo json_encode($response, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 ?>

@@ -1,4 +1,5 @@
 <?php
+include "StateConnections/conexion.php";
 session_start();
 
 if (!empty($_SESSION["id"])) {
@@ -25,7 +26,10 @@ if(!empty($_POST["btningresar"])){
 
         }else{
 
-            echo "<div class='alert-danger'>Acceso denegado</div>";
+            echo "<div class='alert-danger'>
+            <img src='../Recursos/x.png' alt='x'>
+            <p class='textoblanco'>Acceso denegado</p>
+            </div>";
 
         }
 

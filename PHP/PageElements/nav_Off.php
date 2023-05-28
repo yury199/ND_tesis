@@ -30,3 +30,4 @@
        </li>
      </ul>
    </nav>
+<div class="separator" ></div>

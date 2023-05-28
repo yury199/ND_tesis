@@ -1,38 +1,31 @@
-.index_main{
-  width: 70%;
-  margin: 0 auto;
-  padding-top: 100px;
-  border: 0 10px;
-}
+
 .encabezado {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 40px;
   gap:50px;
 }
 
-.encabezado__imagen {
-  margin-right: 32px;
-}
-
-.encabezado__informacion {
+.principal{
   display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-  background-color: white;
-  border-radius: 32px;
   padding: 40px;
-  box-shadow: 2px 2px 5px rgba(33, 33, 33, 0.2);
   gap:30px;
-  
 }
 
-.texto {
-  font-family: 'Jaldi-Regular', sans-serif;
-  font-weight: normal;
-  font-size: 20px;
+.infoF{
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  gap:30px;
+  padding: 30px;
+  z-index: -1;
+}
+
+.encabezado__imagen {
+  margin-right: 32px;
 }
 
 .encabezado__titulo {
@@ -42,8 +35,6 @@
   width: 100%;
   gap:50px;
 }
-
-
 
 .encabezado__item path {
   fill: var(--color-de-fondo);
@@ -55,55 +46,16 @@
   opacity: 0.5;
 }
 
-.titulo {
-  font-family: 'Rowdies-Regular', sans-serif;
-  font-weight: normal;
-  color: var(--color-de-fondo);
-}
-
-.encabezado__titulo .titulo{
-  font-size: 43px;
-}
-
-.encabezado__titulo span{
-  font-size: 30px;
-}
-
-.encabezado__boton {
-  padding: 15px 30px;
-  background-color:var(--color-de-fondo);
-  color: white;
-  text-align: center;
-  font-family: 'Jaldi-Regular', sans-serif;
-  font-weight: bold;
-  font-size: 24px;
-  text-decoration: none;
-  border-radius: 18px;
-  transition: all 0.2s ease-in-out;
-}
 /*información*/
 .info{
   display: flex;
   justify-content: space-between;
   align-items: stretch;
  
-  padding-top: 100px;
-  
- 
+  padding-top: 100px; 
 }
 
-.info_fondo{
-  display: flex;
-  justify-content: center;
-  align-items: end;
-  gap:30px;
 
-  background-color: white;
-  padding: 30px;
-  border-radius: 50px;
-  box-shadow: 2px 2px 5px rgba(33, 33, 33, 0.2);
-  z-index: -1;
-}
 .contenedor_info{
   flex: 1;
   height:100%;
@@ -117,19 +69,17 @@
   background-color:var(--color-de-fondo);
   border-radius: 32px;
   padding: 5px 30px;
-  
+ 
 }
 
 .contenedor_info .titulo{
   font-size: 30px;
   color: white;
   text-align: center;  
-
 }
 .contenedor_info .texto{
   color: white;
   text-align: center;
-
 }
 
 .info_img{
@@ -154,6 +104,7 @@
   bottom: 100%;
   margin: auto;
 }
+
 .espacio{
   padding-top: 60px;
 }
@@ -170,7 +121,7 @@
 }
 
 @media (max-width: 1000px) {
-  .encabezado__informacion {
+  .principal {
     gap:10px;
     
   }
@@ -199,7 +150,7 @@
 }
 
 @media (max-width: 950px) {
-  .info_fondo {
+  .infoF {
     display: grid;
     justify-content: center;
     align-items: center;

@@ -4,10 +4,10 @@ session_start();
 include("../StateConnections/conexion.php");
 
 // Obtener el valor de la variable emocion enviada desde el archivo JS
-$emocion = $_POST['emocion'];
-//DATOS del usuario
-$user = "Luisa123";  // especifica el nombre de usuario*/
-$titulo = "sofiaqqqqq"; // especifica el título de la HISTORIA*/
+ $emocion = $_POST['emocion']; 
+ $titulo =  $_SESSION['titulohistoria'];
+ $autor = $_SESSION['autor'];
+
 
       
       // Obtener los valores , o establecerlos,si aún no se han establecido
@@ -18,7 +18,7 @@ $titulo = "sofiaqqqqq"; // especifica el título de la HISTORIA*/
         $codigo='padre:'.$P.'Emocion:'.$E.'Climax:'.$C;
       
      //Buscar la img
-      $query = "SELECT * FROM users WHERE usuario = '$user' AND titlestory = '$titulo' AND parent = '$P'";
+      $query = "SELECT * FROM users WHERE usuario = '$autor' AND titlestory = '$titulo' AND parent = '$P'";
       $resultado = $conexion->query($query);
 
       // Se encontró una coincidencia para la nomenclatura
@@ -34,13 +34,16 @@ $titulo = "sofiaqqqqq"; // especifica el título de la HISTORIA*/
         if ($C==0) {
           $P = $row['id_historieta'];
           $_SESSION['P'] = $P;
+          
 
           $response = array('ruta_imagen' => $imagenCodificada, "texto_parrafo" =>  $texto_parrafo);
           echo json_encode($response);
           exit();
 
         }else{
-          $query = "SELECT * FROM users WHERE usuario = '$user' AND titlestory = '$titulo' AND parent = '$P' AND emocion LIKE '%$emocion%'";
+  
+
+          $query = "SELECT * FROM users WHERE usuario = '$autor' AND titlestory = '$titulo' AND parent = '$P' AND emocion LIKE '%$emocion%'";
           $resultado = $conexion->query($query);
 
   
@@ -71,7 +74,7 @@ $titulo = "sofiaqqqqq"; // especifica el título de la HISTORIA*/
 
       }else{
           //Buscar la img
-      $query = "SELECT * FROM users WHERE usuario = '$user' AND titlestory = '$titulo' AND  parent IS NULL AND emocion LIKE '%$E%'";
+      $query = "SELECT * FROM users WHERE usuario = '$autor' AND titlestory = '$titulo' AND  parent IS NULL AND emocion LIKE '%$E%'";
       $resultado = $conexion->query($query);
 
       // Se encontró una coincidencia para la nomenclatura
@@ -89,8 +92,12 @@ $titulo = "sofiaqqqqq"; // especifica el título de la HISTORIA*/
           $response = array('ruta_imagen' => $imagenCodificada, "texto_parrafo" =>  $texto_parrafo);
           echo json_encode($response);
           exit();
-
+        }else{
+          $response = array('ruta_imagen' => $imagenCodificada, "texto_parrafo" =>  $texto_parrafo);
+          echo json_encode($response);
+          exit();
         }
+
       }else{
         $response = array('ruta_imagen' => '../Historietas/final.jpg', "texto_parrafo" =>  '');
         echo json_encode($response);

@@ -73,7 +73,7 @@ if (mysqli_num_rows($resultado) > 0) {
             if ($padreNodo == 0) {
 
 
-                $response['message'] = 'Por favor seleccione un nodo que esté en una rama final.';
+                $response= 'Por favor seleccione un viñeta que esté en una rama final.';
 
             } else {
                 // Verificar si ya existen nodos con la misma información
@@ -83,7 +83,7 @@ if (mysqli_num_rows($resultado) > 0) {
                 if ($resultado->num_rows > 0) {
 
 
-                    $response['message'] = 'Los nodos se agregan al final de cada rama.';
+                    $response= 'Las viñetas se agregan al final de cada rama.';
 
                 } else {
                     // Consulta SQL
@@ -118,7 +118,7 @@ if (mysqli_num_rows($resultado) > 0) {
                         $imagen2 = $nombre_imagen2;
                         $stmt2->execute();
 
-                        $response['message'] = 'se guardo';
+                        $response= 'se ha dividido la historia';
                         $_SESSION["nodeId"] = 0;
 
                         $stmt1->close();
@@ -135,16 +135,16 @@ if (mysqli_num_rows($resultado) > 0) {
 
 
 
-            $response['message'] = "Ocurrió un error al subir el archivo o no se ha enviado una imagen";
+            $response= "Ocurrió un error al subir el archivo o no se ha enviado una imagen";
 
         }
 
     } else {
 
-        $response['message'] = "No se subieron las imagenes";
+        $response= "No se subieron las imagenes";
     }
 } else {
-    $response['message'] = "Debes agregar un viñeta simple primero";
+    $response= "Debes agregar un viñeta simple primero";
 
 }
 
@@ -154,6 +154,6 @@ $_SESSION["nodeId"] = 0;
 $conexion->close();
 // Enviar la respuesta como JSON
 header('Content-Type: application/json');
-echo json_encode($response);
+echo json_encode($response, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 
 ?>

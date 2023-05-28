@@ -34,7 +34,8 @@ function cambiarColor() {
       'url(../Recursos/bg1.jpg)',
       'url(../Recursos/bg2.jpg)',
       'url(../Recursos/bg3.jpg)',
-      'url(../Recursos/bg4.jpg)'
+      'url(../Recursos/bg4.jpg)',
+      'url(../Recursos/bg5.jpg)'
     ];
     const indiceAleatorio = Math.floor(Math.random() * imagenes.length);
     localStorage.setItem('imagen-fondo', imagenes[indiceAleatorio]);

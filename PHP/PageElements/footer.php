@@ -47,3 +47,6 @@
         
 
       </footer>
+          <!-- Definir colores--> 
+	<script src="../JS/cambioColor.js"></script>
+  <script src="../JS/nav_menu.js"></script> 

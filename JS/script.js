@@ -1,7 +1,10 @@
 const video = document.getElementById("video");
 const textHistoria = document.getElementsByClassName("des_his");
 
-var variableNarrativa = 1;
+// Obtener el elemento del div
+const mensajeDiv = document.getElementById("avisa");
+const msj = document.getElementById("textoA");
+var imagen = document.getElementById("ninoA");
 
 //---el arreglo
 let emociones;
@@ -24,7 +27,7 @@ function startVideo() {
   );
 }
 
-video.addEventListener("play", () => {
+video.addEventListener("play",() => {
   const canvas = faceapi.createCanvasFromMedia(video);
   document.body.append(canvas);
   const displaySize = { width: video.width, height: video.height };
@@ -35,10 +38,29 @@ video.addEventListener("play", () => {
       .withFaceLandmarks()
       .withFaceExpressions();
 
+ 
+
+
+    const resizedDetections = faceapi.resizeResults(detections, displaySize);
+
+    canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+    faceapi.draw.drawDetections(canvas, resizedDetections);
+    faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
+    faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
+
+
+
+    
     emocionesV = detections.map((face) => face.expressions);
     if (emocionesV.length === 0) {
-      console.log("No se ha detectado ninguna cara o emoción en el video");
+
+      msj.textContent = "No se está detectando tu expresión.";
+  
+      mensajeDiv.style.opacity = 1;
+
+ //console.log("No se ha detectado ninguna cara o emoción en el video");
     } else {
+      mensajeDiv.style.opacity = 0;
       emociones = [
         {
           emocion: "feliz",
@@ -75,28 +97,21 @@ video.addEventListener("play", () => {
       );
       emociondetectada = emocionesOrdenadas[0].emocion;
     }
-
-    const resizedDetections = faceapi.resizeResults(detections, displaySize);
-
-    canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
-    faceapi.draw.drawDetections(canvas, resizedDetections);
-    faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
-    faceapi.draw.drawFaceExpressions(canvas, resizedDetections);
   }, 100);
 });
 
 function cambiarImagen() {
-  // Crear una instancia de XMLHttpRequest
+
   var xhttp = new XMLHttpRequest();
 
-  // Configurar la solicitud HTTP POST al archivo PHP
+
   xhttp.open("POST", "../PHP/readStates/nomenclatura.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 
-  // Manejar la respuesta del archivo PHP
+
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
-      // Obtener la ruta de la imagen y texto desde la respuesta del archivo PHP
+
       var response = JSON.parse(this.responseText);
       var ruta_imagen = response.ruta_imagen;
       var texto_parrafo = response.texto_parrafo;
@@ -114,3 +129,4 @@ function cambiarImagen() {
   // Enviar los datos de la variable
   xhttp.send("emocion=" + emociondetectada);
 }
+

@@ -2,11 +2,8 @@
 session_start();
 include("./StateConnections/conexion.php");
 
-$usuarioconectado = $_SESSION["nombreusuario"];
-
-$sql = "SELECT * FROM Historietas WHERE usuario='$usuarioconectado'";
+$sql = "SELECT * FROM Historietas";
 $all_historias = $conexion->query($sql);
-
 
 ?>
 
@@ -43,7 +40,7 @@ $all_historias = $conexion->query($sql);
 
         <div class="contenedor con_lectura">
             <div class="tituloprincipal">
-                <h1>Mis historietas</h1>
+                <h1>Lee diferentes <br> historietas</h1>
                 <svg class="lbro" xmlns="http://www.w3.org/2000/svg" width="90" height="99" fill="none">
                     <path fill="#325BA5" d="M83 78h-3c-2 0-3-2-4-3l-2-6 11-4 1 2 1 4c1 3 0 5-3 7h-1Z" />
                     <path fill="#5B7CB7" d="m80 64-2-5c2 0 5 1 6 3l-4 2ZM73 66c0-2 1-5 3-6l1 5-4 1Z" />
@@ -85,13 +82,10 @@ $all_historias = $conexion->query($sql);
             <main>
                 <?php
                 while ($row = mysqli_fetch_assoc($all_historias)) {
-                    $_SESSION['titulohistoria'] = $row["titlestory"];
-
                     ?>
                     <div class="card" data-genero="<?php echo $row["genero"]; ?>">
-
-
-                        <div class="image_card" style="background-image: url('<?php echo $row["imgUrl"]; ?>');">
+                        
+                    <div class="image_card" style="background-image: url('<?php echo $row["imgUrl"]; ?>');">
                             <div class="titulo">
                                 <h4>
                                     <?php echo $row["titlestory"]; ?>
@@ -112,28 +106,11 @@ $all_historias = $conexion->query($sql);
                             </h4>
                         </div>
                         <div class="accition">
-
-
-                            <a href="#" class="eliminar-historieta" data-autor="<?php echo $row["usuario"]; ?>"
-                                data-titulo="<?php echo $row["titlestory"]; ?>" onclick="confirmarEliminacion(event)">
-                                <img src="../Recursos/Beliminar.png" alt="eliminar historia">
-                            </a>
-
-                            <a href="#" class="editar-historieta"  data-genero="<?php echo $row["genero"]; ?>" data-titulo="<?php echo $row["titlestory"]; ?>">
-                                <img src="../Recursos/Beditar.png" alt="editar historieta">
-                            </a>
-
-
-
                             <a href="#" class="mostrar-historieta" data-autor="<?php echo $row["usuario"]; ?>"
                                 data-titulo="<?php echo $row["titlestory"]; ?>"><img src="../Recursos/play.png"
                                     alt="reproducir historieta"> </a>
-
-
                         </div>
                     </div>
-
-
                     <?php
                 }
                 ?>
@@ -141,10 +118,9 @@ $all_historias = $conexion->query($sql);
         </div>
 
     </section>
-    <div id="formulario-container"></div>
 
     <script src="../JS/jquery-3.4.1.min.js"></script>
-
+   
     <script type="text/javascript">
         function search() {
             let filter = document.getElementById('find').value.toUpperCase();
@@ -181,14 +157,6 @@ $all_historias = $conexion->query($sql);
             }
         }
 
-        //------estilos dinamicos
-        function resizeInput(input) {
-            input.style.width = (input.value.length + 1) * 8 + 'px';
-        }
-
-
-        //------estados de accion-----------
-
         $(document).ready(function () {
             $(".mostrar-historieta").click(function (event) {
                 event.preventDefault(); // Evita la acción predeterminada del botón
@@ -215,38 +183,11 @@ $all_historias = $conexion->query($sql);
             });
         });
 
-        $(document).ready(function () {
-            $('.editar-historieta').click(function (event) {
-                // Obtén los datos necesarios de los atributos "data" del enlace
-                var genero = $(this).data('genero');
-                var titulo = $(this).data('titulo');
-
-                // Construye la URL con los parámetros GET
-                var url = './editarPortada.php?genero=' + encodeURIComponent(genero) + '&titulo=' + encodeURIComponent(titulo);
-
-                // Redirige a la página del formulario
-                window.location.href = url;
-            });
-        });
-
-
-
-
-        function confirmarEliminacion(event) {
-            event.preventDefault();
-            var enlace = event.currentTarget;
-
-            var historia = enlace.getAttribute("data-titulo");
-            var autor = enlace.getAttribute("data-autor");
-
-            var confirmacion = confirm("¿Estás seguro de que deseas eliminar la historia '" + historia + "'?");
-
-            if (confirmacion) {
-                var url = "./readStates/deleteStory.php?historia=" + encodeURIComponent(historia) + "&autor=" + encodeURIComponent(autor);
-                window.location.href = url;
-            }
-
+        //------estilos dinamicos
+        function resizeInput(input) {
+            input.style.width = (input.value.length + 1) * 8 + 'px';
         }
+
 
 
     </script>

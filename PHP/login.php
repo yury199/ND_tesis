@@ -16,12 +16,9 @@ if (isset($_SESSION["id"])) {
   <!-- Enlaces-->
   <link rel="stylesheet" href="../CSS/fonts.css">
   <link href="../CSS/nav.css" rel="stylesheet" type="text/css">
-  <link href="../CSS/body.css" rel="stylesheet" type="text/css">
+  <link href="../CSS/style.css" rel="stylesheet" type="text/css">
   <link href="../CSS/footer.css" rel="stylesheet" type="text/css">
   <link href="../CSS/formulario.css" rel="stylesheet" type="text/css">
-  <!-- Definir colores-->
-  <script src="../JS/cambioColor.js"></script>
-
 
 </head>
 
@@ -32,16 +29,15 @@ if (isset($_SESSION["id"])) {
   </header>
 
 
-  <section class="formulario">
+  <section class="index_main">
 
     <div class="contenedor">
       <h1 class="titulo">INGRESAR</h1>
 
-      <div class="containere">
+      <div class="containere f">
 
         <form method="post" class="form" action="">
-          <?php
-          include "StateConnections/conexion.php";
+        <?php
           include "StateConnections/controlador_login.php";
           ?>
           <div class="entrada">
@@ -60,7 +56,7 @@ if (isset($_SESSION["id"])) {
                 <path d="m20 12.016c0 2.209-1.791 4-4 4s-4-1.791-4-4 1.791-4 4-4 4 1.791 4 4z" />
               </svg>
             </div>
-          </div>
+          </div>  
           <div class="form_boton">
             <input name="btningresar" class="btn" type="submit" value="Iniciar sesión">
 
