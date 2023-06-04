@@ -19,7 +19,6 @@ if(!empty($_POST["btningresar"])){
 
             $_SESSION["id"]=$datos->id;
             $_SESSION["nombre"]=$datos->nombre;
-            $_SESSION["apellido"]=$datos->apellido;
             $_SESSION["nombreusuario"]=$usuario;
 
             header("location:home.php");

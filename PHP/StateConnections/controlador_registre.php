@@ -10,13 +10,14 @@ if (isset($_POST["registrar"])) {
     $password2 = mysqli_real_escape_string($conexion, $_POST['password2']);
 
     // Validar que la contraseña sea segura
-    if (strlen($password) <= 6 || !preg_match("#[A-Z]+#", $password) || !preg_match("/[!@#$%^&*()\-_=+{};:,<.>]/", $password)) {
+    if (strlen($password) < 6) {
         echo "<script>document.getElementById('password').classList.add('error');</script>";
         echo "<script>document.getElementById('password2').classList.add('error');</script>";
         echo "<div class='alert-danger'>
         <img src='../Recursos/x.png' alt='x'>
-        <p class='textoblanco'>La contraseña debe tener al menos una letra mayúscula, una letra minúscula, un número, un carácter especial y una longitud mínima de 8 caracteres</p>
+        <p class='textoblanco'>La contraseña debe tener al menos un número y una longitud mínima de 6 caracteres</p>
         </div>";
+    
     } else if ($password != $password2) { // Validar que las contraseñas coincidan
         echo "<script>document.getElementById('password').classList.add('error');</script>";
         echo "<script>document.getElementById('password2').classList.add('error');</script>";
@@ -53,11 +54,11 @@ if (isset($_POST["registrar"])) {
                 if (filter_var($correo, FILTER_VALIDATE_EMAIL)) {
                     $domain = explode('@', $correo)[1];
                     if (checkdnsrr($domain, 'MX')) {
-                        if (strlen($usuario) < 4 || strlen($usuario) > 8 || preg_match("/[^a-zA-Z0-9]+/", $usuario)) {
+                        if (strlen($usuario) < 4 || strlen($usuario) > 10 || preg_match("/[^a-zA-Z0-9]+/", $usuario)) {
                             echo "<script>document.getElementById('usuario').classList.add('error');</script>";
                             echo "<div class='alert-danger'>
         <img src='../Recursos/x.png' alt='x'>
-        <p class='textoblanco'>El nombre de usuario no debe contener caracteres especiales</p>
+        <p class='textoblanco'>No puede contener caracteres especiales, debe tener una longitud entre cuatro y diez caracteres</p>
         </div>";
                     
                         } else {

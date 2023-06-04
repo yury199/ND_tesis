@@ -14,6 +14,7 @@
     <script src="JS/cambioColor.js"></script>
   </head>
   <body onload="cambiarColor()">
+    
     <header>
       <nav class="container">
         <input
@@ -58,27 +59,11 @@
         </ul>
       </nav>
     </header>
-    <section>
-      <div class="custom-divider">
-        <svg
-          class="divider"
-          data-name="Layer 1"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-            class="shape-fill"
-          ></path>
-        </svg>
-      </div>
-    </section>
-
+    <div class="separator" ></div>
     <section class="index_main">
       <section class="encabezado">
         <div class="encabezado__imagen">
-          <img src="Recursos/niño1.png" alt="niño con una idea" />
+          <img src="Recursos/nino1.png" alt="niño con una idea" />
         </div>
         <div class="contenedor principal">
           <div class="encabezado__titulo">
@@ -172,34 +157,27 @@
         </div>
       </section>
     </section>
-
-    <footer>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="divider"
-        viewBox="0 0 1080 47"
-        preserveAspectRatio="none"
-      >
-        <path
-          fill="#5B7CB7"
-          d="M1280 48V2c-126-6-145 34-300 36-171 3-172-26-343-23-171 2-170 30-342 33C144 50 120-6 0 2v46h1280Z"
-        />
+   
+    <footer >
+      <svg xmlns="http://www.w3.org/2000/svg" class="divider" viewBox="0 0 1080 47" preserveAspectRatio="none">
+        <path fill="#5B7CB7" d="M1280 48V2c-126-6-145 34-300 36-171 3-172-26-343-23-171 2-170 30-342 33C144 50 120-6 0 2v46h1280Z"/>
       </svg>
       <section class="footer-distributed">
         <div class="footer-left">
-          <img src="Recursos/iso.png" alt="Logo" id="logo" />
 
-          <p class="footer-links">
-            <a href="#">Sobre nosotros</a>
-            <a href="#">Contacto</a>
+          <img src="Recursos/iso.png" alt="Logo" id="logo">
+  
+          <p class="footer-links">    
+            <a href="PHP/sobrenosotros.php">Sobre nosotros</a>
+            <a href="PHP/terminosycondiciones.php">Términos y condiciones</a>
           </p>
           <p class="footer-company-name">Universidad Sanbuenaventura © 2023</p>
         </div>
-
+  
         <div class="footer-center">
           <div>
             <i class="fa fa-map-marker"></i>
-            <p><span>Carrera 8H # 172 -20</span> Bogotá, Colombia</p>
+            <p>Bogotá, Colombia</p>
           </div>
           <div>
             <i class="fa fa-phone"></i>
@@ -207,27 +185,20 @@
           </div>
           <div>
             <i class="fa fa-envelope"></i>
-            <p>
-              <a href="mailto:informacion@usbbog.edu.co"
-                >informacion@usbbog.edu.co</a
-              >
-            </p>
+            <p><a href="mailto:informacion@usbbog.edu.co">informacion@usbbog.edu.co</a></p>
           </div>
         </div>
         <div class="footer-right">
           <p class="footer-company-about">
-            <span>About the company</span>
-            Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce
-            euismod convallis velit, eu auctor lacus vehicula sit amet.
+            <span>"Narrativas Digitales"</span>
+            Te ofrece una experiencia única en la que tus emociones son fundamentales para la narrativa. Sumérgete en un mundo de historias digitales y descubre cómo tus sentimientos dan forma a tus lecturas.
           </p>
-          <div class="footer-icons">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-github"></i></a>
-          </div>
+
         </div>
+
       </section>
+      
+
     </footer>
   </body>
 </html>

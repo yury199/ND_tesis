@@ -4,7 +4,7 @@ include("./StateConnections/conexion.php");
 
 $usuarioconectado = $_SESSION["nombreusuario"];
 
-$sql = "SELECT * FROM Historietas WHERE usuario='$usuarioconectado'";
+$sql = "SELECT * FROM historietas WHERE usuario='$usuarioconectado'";
 $all_historias = $conexion->query($sql);
 
 

@@ -55,7 +55,7 @@ if (mysqli_num_rows($resultado_select) > 0) {
                     echo '</div>';
                     echo '<label class="semititulo">Descripción:</label>';
                     echo ' <textarea id="texto4" class="descrp" name="texto" cols="auto" rows="3"
-                    placeholder="  Menos de 100 caracteres" maxlength="100">' . $row['Descripcion'] . '</textarea>';
+                    placeholder="  Menos de 500 caracteres" maxlength="500">' . $row['Descripcion'] . '</textarea>';
                     
                     echo '<label class="semititulo">Emociones:</label>';
                     echo '<div class="check">';
@@ -115,7 +115,7 @@ if (mysqli_num_rows($resultado_select) > 0) {
                     echo '</div>';
 
                     echo '<label class="semititulo">Descripción:</label>';
-                    echo ' <textarea id="texto5" class="descrp" name="texto" cols="auto" rows="3" placeholder="  Menos de 100 caracteres" maxlength="100">' . $row['Descripcion'] . '</textarea>';
+                    echo ' <textarea id="texto5" class="descrp" name="texto" cols="auto" rows="3" placeholder="  Menos de 500 caracteres" maxlength="500">' . $row['Descripcion'] . '</textarea>';
                    
                    
 

@@ -91,14 +91,14 @@ if (!empty($_FILES['imagenE']['name'])) {
 
         if ($stmt->affected_rows > 0) {
             // Se actualizó la descripción correctamente
-            $response['message'] = "Se actualizó la descripción";
+            $response= "Se actualizó la descripción";
         } else {
             // No se encontró ningún registro que cumpla los criterios de actualización
-            $response['message'] = "No se encontró ningún registro que cumpla los criterios de actualización";
+            $response= "No se encontró ningún registro que cumpla los criterios de actualización";
         }
     } else {
         // Error en la preparación de la consulta SQL
-        $response['message'] = "Error en la preparación de la consulta SQL";
+        $response= "Error en la preparación de la consulta SQL";
     }
 
 
@@ -127,5 +127,5 @@ $_SESSION["nodeId"] = 0;
 $conexion->close();
 // Enviar la respuesta como JSON
 header('Content-Type: application/json');
-echo json_encode($response);
+echo json_encode($response, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 ?>

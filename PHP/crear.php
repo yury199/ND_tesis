@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (empty($_SESSION["id"])) {
+  header("location: login.php");  
+} 
+
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +24,7 @@ session_start();
 </head>
 
 <body onload="cambiarColor()">
+
   <!-- Aquí comienza el NAV -->
   <header>
 
@@ -76,8 +81,8 @@ session_start();
 
             <label class="semititulo">Descripción:</label>
             <textarea id="texto1" class="descrp" name="texto" cols="auto" rows="3"
-              placeholder="  Menos de 100 caracteres" maxlength="100"></textarea>
-            <p class="text"> <span class="text" id="charCount1">100</span> caracteres restantes</p>
+              placeholder="  Menos de 500 caracteres" maxlength="500"></textarea>
+            <p class="text"> <span class="text" id="charCount1">500</span> caracteres restantes</p>
 
             <div class="botonesconfim">
               <a class="btnC" href="#" id="btnSubmit" onclick="agregarDato()">Aceptar</a>
@@ -105,8 +110,8 @@ session_start();
 
                 <label class="semititulo">Descripción:</label>
                 <textarea id="texto2" class="descrp" name="descripcion1" cols="auto" rows="3"
-                  placeholder="  Menos de 100 caracteres" maxlength="100"></textarea>
-                <p class="text"> <span class="text" id="charCount2">100</span> caracteres restantes</p>
+                  placeholder="  Menos de 500 caracteres" maxlength="500"></textarea>
+                <p class="text"> <span class="text" id="charCount2">500</span> caracteres restantes</p>
 
                 <label class="semititulo">Emociones:</label>
 
@@ -125,7 +130,7 @@ session_start();
                   <input type="checkbox" name="emocion1[]" value="asqueado"
                     onchange="actualizarEmociones('emocion1', 'emocion2')"> Asqueado
                   <input type="checkbox" name="emocion1[]" value="soprendido"
-                    onchange="actualizarEmociones('emocion1', 'emocion2')"> Sorprendido
+                    onchange="actualizarEmociones('emocion1', 'emocion2')"> Asustado
 
                 </div>
               </div>
@@ -142,8 +147,8 @@ session_start();
 
                 <label class="semititulo">Descripción:</label>
                 <textarea id="texto3" class="descrp" name="descripcion2" cols="auto" rows="3"
-                  placeholder="  Menos de 100 caracteres" maxlength="100"></textarea>
-                <p class="text"> <span class="text" id="charCount3">100</span> caracteres restantes</p>
+                  placeholder="  Menos de 100 caracteres" maxlength="500"></textarea>
+                <p class="text"> <span class="text" id="charCount3">500</span> caracteres restantes</p>
 
                 <label class="semititulo">Emociones:</label>
                 <div class="check">
@@ -160,7 +165,7 @@ session_start();
                   <input type="checkbox" name="emocion2[]" value="asqueado"
                     onchange="actualizarEmociones('emocion2', 'emocion1')"> Asqueado
                   <input type="checkbox" name="emocion2[]" value="soprendido"
-                    onchange="actualizarEmociones('emocion2', 'emocion1')"> Sorprendido
+                    onchange="actualizarEmociones('emocion2', 'emocion1')"> Asustado
                 </div>
 
               </div><!--  -->
@@ -237,6 +242,7 @@ session_start();
   <script src="script.js"></script>
 
   <script type='text/javascript'>
+
 
     //___mostrar formularios____
 
@@ -434,11 +440,11 @@ const charCount1 = document.getElementById('charCount1');
 
 textarea1.addEventListener('input', function () {
   const writtenChars = this.value.length;
-  const remainingChars = 100 - writtenChars;
+  const remainingChars = 500 - writtenChars;
   charCount1.textContent = remainingChars;
 
-  if (writtenChars > 100) {
-    this.value = this.value.slice(0, 100);
+  if (writtenChars > 500) {
+    this.value = this.value.slice(0, 500);
   }
 });
 
@@ -448,11 +454,11 @@ const charCount2 = document.getElementById('charCount2');
 
 textarea2.addEventListener('input', function () {
   const writtenChars = this.value.length;
-  const remainingChars = 100 - writtenChars;
+  const remainingChars = 500 - writtenChars;
   charCount2.textContent = remainingChars;
 
-  if (writtenChars > 100) {
-    this.value = this.value.slice(0, 100);
+  if (writtenChars > 500) {
+    this.value = this.value.slice(0, 500);
   }
 });
 
@@ -462,11 +468,11 @@ const charCount3 = document.getElementById('charCount3');
 
 textarea3.addEventListener('input', function () {
   const writtenChars = this.value.length;
-  const remainingChars = 100 - writtenChars;
+  const remainingChars = 500 - writtenChars;
   charCount3.textContent = remainingChars;
 
-  if (writtenChars > 100) {
-    this.value = this.value.slice(0, 100);
+  if (writtenChars > 500) {
+    this.value = this.value.slice(0, 500);
   }
 });
 

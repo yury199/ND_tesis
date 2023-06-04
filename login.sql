@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-05-2023 a las 13:22:01
+-- Tiempo de generación: 04-06-2023 a las 04:15:17
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.1.12
 
@@ -36,6 +36,13 @@ CREATE TABLE `historietas` (
   `descripcion` varchar(305) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Volcado de datos para la tabla `historietas`
+--
+
+INSERT INTO `historietas` (`id`, `imgUrl`, `usuario`, `titlestory`, `genero`, `descripcion`) VALUES
+(123, '../Historietas/Luisa123/hola mamadd/6476de1bd41ca_Logo UTADEO vertical.jpg', 'Luisa123', 'hola mamadd', 'fantasía', 'ddd');
+
 -- --------------------------------------------------------
 
 --
@@ -54,6 +61,20 @@ CREATE TABLE `users` (
   `genero` enum('aventuras','fantasía','ciencia ficción','superhéroes','humor','misterio','históricas') NOT NULL,
   `climax` tinyint(1) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `id_historieta`, `parent`, `imgUrl`, `usuario`, `titlestory`, `Descripcion`, `emocion`, `genero`, `climax`) VALUES
+(668, 1, NULL, '../Historietas/Luisa123/hola mamadd/6476de24ab8fe_domo.utadeo.1.jpg', 'Luisa123', 'hola mamadd', '', 'N/A', 'fantasía', 0),
+(669, 2, 1, '../Historietas/Luisa123/hola mamadd/6476de3162a7e_color.jpg', 'Luisa123', 'hola mamadd', '', 'N/A', 'fantasía', 0),
+(670, 3, 2, '../Historietas/Luisa123/hola mamadd/6476de4db121b_IMG-20150923-WA001.jpg', 'Luisa123', 'hola mamadd', '', 'feliz,neutral,triste', 'aventuras', 1),
+(671, 4, 2, '../Historietas/Luisa123/hola mamadd/6476de4db121e_SAM_3746.JPG', 'Luisa123', 'hola mamadd', '', 'sorprendido,enojado,asqueado', 'aventuras', 1),
+(672, 5, 3, '../Historietas/Luisa123/hola mamadd/6476e017a5da5_SAM_3746.JPG', 'Luisa123', 'hola mamadd', '', 'N/A', 'fantasía', 0),
+(673, 6, 5, '../Historietas/Luisa123/hola mamadd/6476e02022950_IMG-20140526-00111.jpg', 'Luisa123', 'hola mamadd', '', 'N/A', 'fantasía', 0),
+(674, 7, 6, '../Historietas/Luisa123/hola mamadd/6476e0463c043_IMG-20150923-WA001.jpg', 'Luisa123', 'hola mamadd', '', 'feliz,neutral,triste,sorprendido,enojado,asqueado', 'aventuras', 1),
+(675, 8, 6, '../Historietas/Luisa123/hola mamadd/6476e0463c047_IMG-20150923-WA001.jpg', 'Luisa123', 'hola mamadd', '', '', 'aventuras', 1);
 
 -- --------------------------------------------------------
 
@@ -74,9 +95,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombreusuario`, `nombre`, `contrasena`, `correo`) VALUES
-(11, 'Luisa123', 'luiosa', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'luisa@gmail.com'),
-(12, 'papa', 'luisa la bonita', 'b5761861cee8613452bfda9172977cc96c723c2d', 'papa@gmail.com'),
-(13, 'yuti', 'yuri', 'b5761861cee8613452bfda9172977cc96c723c2d', 'yuri@gmail.com');
+(11, 'Luisa123', 'luiosa', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'luisa@gmail.com');
 
 --
 -- Índices para tablas volcadas
@@ -108,19 +127,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `historietas`
 --
 ALTER TABLE `historietas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=649;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=676;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

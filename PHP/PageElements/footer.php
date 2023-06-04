@@ -8,8 +8,8 @@
             <img src="../Recursos/iso.png" alt="Logo" id="logo">
     
             <p class="footer-links">    
-              <a href="#">Sobre nosotros</a>
-              <a href="#">Contacto</a>
+              <a href="./sobrenosotros.php">Sobre nosotros</a>
+              <a href="./terminosycondiciones.php">Términos y condiciones</a>
             </p>
             <p class="footer-company-name">Universidad Sanbuenaventura © 2023</p>
           </div>
@@ -17,7 +17,7 @@
           <div class="footer-center">
             <div>
               <i class="fa fa-map-marker"></i>
-              <p><span>Carrera 8H # 172 -20</span> Bogotá, Colombia</p>
+              <p>Bogotá, Colombia</p>
             </div>
             <div>
               <i class="fa fa-phone"></i>
@@ -30,17 +30,10 @@
           </div>
           <div class="footer-right">
             <p class="footer-company-about">
-              <span>About the company</span>
-              Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+              <span>"Narrativas Digitales"</span>
+              Te ofrece una experiencia única en la que tus emociones son fundamentales para la narrativa. Sumérgete en un mundo de historias digitales y descubre cómo tus sentimientos dan forma a tus lecturas.
             </p>
-            <div class="footer-icons">
-    
-              <a href="#"><i class="fa fa-facebook"></i></a>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-              <a href="#"><i class="fa fa-linkedin"></i></a>
-              <a href="#"><i class="fa fa-github"></i></a>
-    
-            </div>
+
           </div>
 
         </section>

@@ -34,9 +34,19 @@ include("../StateConnections/conexion.php");
         if ($C==0) {
           $P = $row['id_historieta'];
           $_SESSION['P'] = $P;
+
+          $query = "SELECT * FROM users WHERE usuario = '$autor' AND titlestory = '$titulo' AND parent = '$P' AND climax='1'";
+          $resultado = $conexion->query($query);
+      
+          if ($resultado->num_rows > 0) {
+            $activar_aviso = true;
+          }else{
+            $activar_aviso = false;
+          }
+          
           
 
-          $response = array('ruta_imagen' => $imagenCodificada, "texto_parrafo" =>  $texto_parrafo);
+          $response = array('ruta_imagen' => $imagenCodificada, "texto_parrafo" =>  $texto_parrafo, "activar_aviso" => $activar_aviso);
           echo json_encode($response);
           exit();
 
@@ -59,12 +69,23 @@ include("../StateConnections/conexion.php");
             $_SESSION['E'] = $E;
   
   
-            $response = array('ruta_imagen' => $imagenCodificada, "texto_parrafo" =>  $texto_parrafo);
+            $query = "SELECT * FROM users WHERE usuario = '$autor' AND titlestory = '$titulo' AND parent = '$P' AND climax='1'";
+            $resultado = $conexion->query($query);
+        
+            if ($resultado->num_rows > 0) {
+              $activar_aviso = true;
+            }else{
+              $activar_aviso = false;
+            }
+            
+            
+  
+            $response = array('ruta_imagen' => $imagenCodificada, "texto_parrafo" =>  $texto_parrafo, "activar_aviso" => $activar_aviso);
             echo json_encode($response);
             exit();
 
           }else{
-            $response = array('ruta_imagen' => '../Historietas/final.jpg', "texto_parrafo" =>  '');
+            $response = array('ruta_imagen' => '../Historietas/final.jpg', "texto_parrafo" =>  '',"activar_aviso" => '');
             echo json_encode($response);
             exit();
           }
@@ -89,17 +110,42 @@ include("../StateConnections/conexion.php");
         $_SESSION['P'] = $P;
 
         if ($C==0) {
-          $response = array('ruta_imagen' => $imagenCodificada, "texto_parrafo" =>  $texto_parrafo);
+
+          $query = "SELECT * FROM users WHERE usuario = '$autor' AND titlestory = '$titulo' AND parent = '$P' AND climax='1'";
+          $resultado = $conexion->query($query);
+      
+          if ($resultado->num_rows > 0) {
+            $activar_aviso = true;
+          }else{
+            $activar_aviso = false;
+          }
+          
+
+          $response = array('ruta_imagen' => $imagenCodificada, "texto_parrafo" =>  $texto_parrafo, "activar_aviso" => $activar_aviso);
           echo json_encode($response);
           exit();
+
         }else{
-          $response = array('ruta_imagen' => $imagenCodificada, "texto_parrafo" =>  $texto_parrafo);
+
+          
+          $query = "SELECT * FROM users WHERE usuario = '$autor' AND titlestory = '$titulo' AND parent = '$P' AND climax='1'";
+          $resultado = $conexion->query($query);
+      
+          if ($resultado->num_rows > 0) {
+            $activar_aviso = true;
+          }else{
+            $activar_aviso = false;
+          }
+          
+          
+
+          $response = array('ruta_imagen' => $imagenCodificada, "texto_parrafo" =>  $texto_parrafo, "activar_aviso" => $activar_aviso);
           echo json_encode($response);
           exit();
         }
 
       }else{
-        $response = array('ruta_imagen' => '../Historietas/final.jpg', "texto_parrafo" =>  '');
+        $response = array('ruta_imagen' => '../Historietas/final.jpg', "texto_parrafo" =>  '',"activar_aviso" => '');
         echo json_encode($response);
         exit();
       }

@@ -19,6 +19,7 @@ session_start();
 
 <body onload="cambiarColor()">
 
+
   <body>
     <header>
 
@@ -31,14 +32,23 @@ session_start();
 
     <section class="index_main mostrarHistorieta">
 
-      <div class="contenedorEmociones">
-        <div class="con_his_vi">
-          <video class="proyeccion" id="video" width="200" height="160" autoplay muted></video>
+      <div class="especio1">
+
+        <div class="contenedorEmociones">
+          <div class="con_his_vi">
+            <video class="proyeccion" id="video" width="200" height="160" autoplay muted></video>
+          </div>
+          <img src="../Recursos/grabacion.png" alt="">
         </div>
-        <img src="../Recursos/grabacion.png" alt="">
+
+        <div class="barrita" id="barraemociones">
+          <img id="cara" src="../Recursos/Eneutral.png" alt="">
+          <p id="emocdecttext">hola</p>
+        </div>
+
       </div>
 
-      <div class="contenedorMostrar">
+      <div class=" contenedorMostrar">
         <div class="barraSuperior">
           <h1>
             <?php echo $_SESSION['titulohistoria'] ?>
@@ -64,11 +74,23 @@ session_start();
         </div>
       </div>
 
-      <div class="contenedorAviso" id="avisa" >
-        <img id="ninoA" src="../Recursos/Aduda.png" alt="niño">
-        <div class="infoit">
-          <img  src="../Recursos/x.png" alt="icono">
-          <h6 id="textoA" ></h6>
+      <div class="espacio2">
+
+        <div class="contenedorAviso" id="avisa2" style="display: none;">
+          <img src="../Recursos/Aia.png" alt="niño">
+          <div class="infoit">
+            <img src="../Recursos/Bdividir.png" alt="icono">
+            <h6>Decidiendo el rumbo de tu historia...</h6>
+          </div>
+        </div>
+
+
+        <div class="contenedorAviso" id="avisa">
+          <img src="../Recursos/Aduda.png" alt="niño">
+          <div class="infoit">
+            <img src="../Recursos/x.png" alt="icono">
+            <h6 id="textoA">Ajusta tu posición en la cámara para ser detectado.</h6>
+          </div>
         </div>
       </div>
 
@@ -85,7 +107,7 @@ session_start();
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
           if (this.readyState === 4 && this.status === 200) {
-           location.reload();
+            location.reload();
           }
         };
         xhttp.open("GET", "./readStates/reiniciar.php", true);  // Archivo PHP que contiene la lógica para reiniciar las variables
@@ -94,6 +116,8 @@ session_start();
 
 
     </script>
+
+
     <?php
     include("PageElements/footer.php");
     ?>

@@ -48,10 +48,10 @@ if (empty($_SESSION["id"])) {
             </svg>
           </div>
           <p class="texto">¿Quieres volver a ver cómo quedaron las historietas que has publicado?¿Te gustaría hacer cambios o correcciones a una de ellas? Mantente al día con tus creaciones en este apartado..</p>
-          <a href="PHP/login.php" class="botonGeneral">COMENZAR</a>
+          <a href="creacion.php" class="botonGeneral">COMENZAR</a>
         </div>
         <div class="encabezado__imagen">
-            <img src="../Recursos/niño2.png" alt="niño con una idea">
+            <img src="../Recursos/nino2.png" alt="niño con una idea">
           </div>
       </section>
       <section class="info">

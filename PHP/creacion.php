@@ -54,8 +54,8 @@ if (empty($_SESSION["id"])) {
                         <div class="entrada">
                             <label for="texto">Título de la historieta:</label>
                             <textarea id="myTextarea" name="texto" cols="auto" rows="6"
-                                placeholder="Menos de 300 caracteres" maxlength="300" required></textarea>
-                            <p> <span id="charCount">300</span> caracteres restantes</p>
+                                placeholder="Menos de 500 caracteres" maxlength="500" required></textarea>
+                            <p> <span id="charCount">500</span> caracteres restantes</p>
                         </div>
 
                     </div>
@@ -85,7 +85,7 @@ if (empty($_SESSION["id"])) {
                                             <p id="texto">Seleccione una <br> imagen para subir</p>
                                         </div>
                                     </label>
-                                    <input type="file" name="imagen" id="input-imagen" accept="image/*"
+                                    <input type="file" name="imagen" id="input-imagen" accept=".jpg"
                                         onchange="mostrarImagen(event)" required>
                                 </div>
                             </div>
@@ -115,7 +115,7 @@ if (empty($_SESSION["id"])) {
         function mostrarImagen(event) {
             var input = event.target;
             var file = input.files[0];
-            var maxSizeInBytes = 1 * 900 * 900;
+            var maxSizeInBytes = 5 * 900 * 900;
             var imagen = document.getElementById('imagen');
             var imagenC = document.getElementById('imagenC');
             var texto = document.getElementById('texto');
@@ -153,14 +153,14 @@ if (empty($_SESSION["id"])) {
             const writtenChars = this.value.length;
 
             // Calcular la cantidad de caracteres restantes
-            const remainingChars = 300 - writtenChars;
+            const remainingChars = 500 - writtenChars;
 
             // Actualizar el contador de caracteres restantes
             charCount.textContent = remainingChars;
 
             // Limitar la longitud del texto en el textarea
-            if (writtenChars > 300) {
-                this.value = this.value.slice(0, 300);
+            if (writtenChars > 500) {
+                this.value = this.value.slice(0, 500);
             }
         });
 

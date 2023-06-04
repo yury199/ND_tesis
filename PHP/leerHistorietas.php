@@ -1,8 +1,12 @@
 <?php
 session_start();
 include("./StateConnections/conexion.php");
+if (empty($_SESSION["id"])) {
+    header("location: login.php");  
+  } 
+  
 
-$sql = "SELECT * FROM Historietas";
+$sql = "SELECT * FROM historietas";
 $all_historias = $conexion->query($sql);
 
 ?>
@@ -187,6 +191,7 @@ $all_historias = $conexion->query($sql);
         function resizeInput(input) {
             input.style.width = (input.value.length + 1) * 8 + 'px';
         }
+
 
 
 
