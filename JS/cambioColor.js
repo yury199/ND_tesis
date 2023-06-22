@@ -1,26 +1,3 @@
-/* function cambioColor(){
-
-  const enlace123= document.querySelectorAll(".menu a");
-  const colores = ['#3FA9F5', '#F5CB00', '#FF1D25', '#FF931E', '#FF7BAC'];
-  const color = colores[Math.floor(Math.random() * colores.length)];
-  localStorage.setItem('color-de-fondo', color);
-  enlace123.forEach((enlace,indiceAleatorio)=>{
-   
-    enlace.addEventListener("mouseover",()=>{
-      enlace.style.color=color;
-    })
-    enlace.addEventListener("mouseout",()=>{
-      if(indiceAleatorio!==4){
-        enlace.style.color="white";
-      }else{
-        enlace.style.color="black";
-      }
-      
-    })
-  });
-}
-
- */
 
 function cambiarColor() {
     

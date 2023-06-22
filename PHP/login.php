@@ -25,7 +25,9 @@ if (isset($_SESSION["id"])) {
 <body onload="cambiarColor()">
 
   <header>
+    
     <?php include("PageElements/nav_Off.php"); ?>
+
   </header>
 
 
