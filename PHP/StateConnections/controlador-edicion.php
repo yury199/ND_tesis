@@ -3,7 +3,7 @@ include("conexion.php");
 
 
 // Obtener el ID del usuario actualmente conectado (aquí se asume que ya tienes esta información)
-$userId = 11; // Reemplaza con la lógica para obtener el ID del usuario actual
+$userId = $_SESSION["id"]; // Reemplaza con la lógica para obtener el ID del usuario actual
 
 // Obtener los datos actuales del usuario
 $sql = "SELECT * FROM usuarios WHERE id = $userId";

@@ -1,4 +1,3 @@
-
 function agregarDato() {
   var spanElement = document.getElementById("seleccionadoA");
   var imagen = document.getElementById("file-1").value;
@@ -21,6 +20,7 @@ function agregarDato() {
       contentType: false,
       dataType: "text",
       success: function (response) {
+
         document.getElementById("respuesta").style.display = "block";
         $("#respuesta").text(response);
         updateOrganigram();
@@ -68,8 +68,7 @@ function AgregarDDatos() {
 
     if (!emocion1Seleccionada || !emocion2Seleccionada) {
       document.getElementById("respuesta").style.display = "block";
-      document.getElementById("respuesta").innerText =
-        "Porfavor seleccione almenos una emocion en cada viñeta";
+      document.getElementById("respuesta").innerText ="Porfavor seleccione almenos una emocion en cada viñeta";
       return false;
     } else {
        

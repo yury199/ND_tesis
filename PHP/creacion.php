@@ -52,7 +52,7 @@ if (empty($_SESSION["id"])) {
                         </div>
 
                         <div class="entrada">
-                            <label for="texto">Título de la historieta:</label>
+                            <label for="texto">Sinopsis::</label>
                             <textarea id="myTextarea" name="texto" cols="auto" rows="6"
                                 placeholder="Menos de 500 caracteres" maxlength="500" required></textarea>
                             <p> <span id="charCount">500</span> caracteres restantes</p>

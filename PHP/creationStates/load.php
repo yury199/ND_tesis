@@ -2,7 +2,7 @@
 session_start();
 
 $titulo=$_SESSION["title"];
-$usuario=$_SESSION["nombreusuario"];;
+$usuario=$_SESSION["nombreusuario"];
 function getConnection() {
 	$dbhost="localhost";
 	$dbuser="root";

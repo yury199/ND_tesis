@@ -68,10 +68,12 @@ session_start();
           </div>
         </div>
         <div id="contenedor_historia">
+       
           <img id="imagenH" src="../Historietas/inicio.jpg" data-src="<?php echo $imagenes[0]; ?>"
             alt="Imagen de la historia" loading="lazy">
-          <p id="des_his"></p>
+            <p id="des_his"></p>
         </div>
+
       </div>
 
       <div class="espacio2">
